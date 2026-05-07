@@ -1,0 +1,199 @@
+'use client'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import Image from 'next/image'
+import { useState } from 'react'
+
+const serifStyle = { fontFamily: 'Georgia, serif' }
+
+const steps = [
+  { icon: 'info', step: '01', title: 'Enquire', desc: 'Call us at 6207 834 778 or visit the school office to get details about available seats and admission requirements.' },
+  { icon: 'edit_document', step: '02', title: 'Fill Form', desc: 'Collect and complete the admission form from the school office or download it from this website.' },
+  { icon: 'upload_file', step: '03', title: 'Submit Documents', desc: 'Submit the completed form along with required documents: birth certificate, previous marksheet, photographs, and Aadhar card.' },
+  { icon: 'how_to_reg', step: '04', title: 'Confirm Admission', desc: 'Pay the admission fee and receive your confirmation. Your child\'s school journey begins!' },
+]
+
+const docs = [
+  'Birth Certificate (original + photocopy)',
+  'Previous Class Marksheet / Transfer Certificate',
+  '4 recent passport-size photographs',
+  'Aadhar Card (child and parent)',
+  'Caste Certificate (if applicable)',
+  'Residence Proof',
+]
+
+const feeStructure = [
+  { level: 'Play / KG', grades: 'Play · LKG · UKG', annual: '₹8,000', monthly: '₹700' },
+  { level: 'Primary', grades: 'Class I – V', annual: '₹10,000', monthly: '₹900' },
+  { level: 'Middle School', grades: 'Class VI – VIII', annual: '₹12,000', monthly: '₹1,100' },
+]
+
+export default function AdmissionsPage() {
+  const [formData, setFormData] = useState({ studentName: '', parentName: '', phone: '', email: '', class: '', dob: '', address: '' })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="pt-[164px] flex-1">
+        {/* Hero */}
+        <section className="relative h-[500px] flex items-center overflow-hidden bg-primary-container">
+          <Image
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQkCrvFL4fe6FelfwyTDhC4JdnWwHG4HDpCKw-E5OuRcD2cnrjlSvLn3yebmGILtwvBZ0Y4aHEQlflA7n5aF51JqnY1FUYobj8olnGo8w3yDWM7yWB9hkm3RuPtLDw_57TZqgkM3LP1Pl_6Itpx3om4VcupkLr_PX86J7ESDQHagctSoeDvu77cpn_Tj0dI2ztUVWmWbki-YXvorNOhDInJK3GOU5xGZmr2qaaMTrmb7jKY6wErYgmLYo2RyGH-K25ya9gBZh8Cmo"
+            alt="NBPS Admissions" fill className="object-cover opacity-50" priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/50 to-transparent" />
+          <div className="relative z-10 max-w-container mx-auto px-8 w-full">
+            <div className="max-w-2xl">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm mb-6 uppercase tracking-widest" style={serifStyle}>Admissions 2025–26</span>
+              <h1 className="text-5xl font-bold text-white mb-5" style={serifStyle}>Join NBPS Family</h1>
+              <p className="text-xl text-on-primary-container mb-8 max-w-xl" style={serifStyle}>
+                Enrol your child at NBPS for quality CBSE education from Play to Class VIII. Admissions open for session 2025–26.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a href="#apply" className="font-semibold bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg hover:brightness-110 transition-all" style={serifStyle}>Apply Online</a>
+                <a href="tel:6207834778" className="font-semibold bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all flex items-center gap-2" style={serifStyle}>
+                  <span className="material-symbols-outlined">call</span>Call: 6207 834 778
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Admission Steps */}
+        <section className="py-stack-lg max-w-container mx-auto px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold text-primary mb-4" style={serifStyle}>Admission Process</h2>
+            <p className="text-lg text-on-surface-variant max-w-2xl mx-auto" style={serifStyle}>A simple, transparent process to help your child join our school family.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+            {steps.map((step) => (
+              <div key={step.step} className="bg-white p-8 border border-outline-variant rounded-xl group hover:border-secondary-container transition-colors relative overflow-hidden">
+                <div className="mb-6 w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center text-primary group-hover:bg-secondary-container transition-colors">
+                  <span className="material-symbols-outlined text-3xl">{step.icon}</span>
+                </div>
+                <div className="absolute top-4 right-4 text-[64px] leading-none text-surface-container-high select-none font-bold" style={serifStyle}>{step.step}</div>
+                <h3 className="text-2xl font-bold text-primary mb-3" style={serifStyle}>{step.title}</h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed" style={serifStyle}>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Docs + Fees */}
+        <section className="bg-surface-container-low dark:bg-gray-900 py-stack-lg">
+          <div className="max-w-container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+            {/* Documents */}
+            <div>
+              <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Required Documents</span>
+              <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Documents Checklist</h2>
+              <div className="space-y-3">
+                {docs.map((doc, i) => (
+                  <div key={i} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 transition-colors">
+                    <div className="w-8 h-8 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-sm text-blue-950">check</span>
+                    </div>
+                    <span className="text-on-surface text-sm" style={serifStyle}>{doc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Fee Structure */}
+            <div>
+              <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Fee Structure</span>
+              <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Tuition Fees 2025–26</h2>
+              <div className="space-y-4">
+                {feeStructure.map((f) => (
+                  <div key={f.level} className="bg-white p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-bold text-blue-950" style={serifStyle}>{f.level}</div>
+                        <div className="text-sm text-on-surface-variant" style={serifStyle}>{f.grades}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-blue-950" style={serifStyle}>{f.annual}</div>
+                        <div className="text-sm text-on-surface-variant">/year</div>
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t border-gray-100 text-sm text-on-surface-variant" style={serifStyle}>
+                      Monthly: <span className="font-semibold text-blue-950">{f.monthly}/mo</span>
+                    </div>
+                  </div>
+                ))}
+                <div className="bg-blue-950 text-white p-6 rounded-xl">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="material-symbols-outlined text-amber-400">info</span>
+                    <div className="font-bold" style={serifStyle}>Fee Concessions Available</div>
+                  </div>
+                  <p className="text-blue-200 text-sm" style={serifStyle}>Special fee concessions are available for meritorious students and economically weaker sections. Contact the school office for details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Online Inquiry Form */}
+        <section id="apply" className="py-stack-lg max-w-container mx-auto px-8">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Get Started</span>
+              <h2 className="text-4xl font-bold text-primary mb-4" style={serifStyle}>Admission Enquiry Form</h2>
+              <p className="text-lg text-on-surface-variant" style={serifStyle}>Fill in the details below and our admissions team will contact you within 24 hours.</p>
+            </div>
+
+            {submitted ? (
+              <div className="bg-green-50 border border-green-200 rounded-xl p-10 text-center">
+                <span className="material-symbols-outlined text-6xl text-green-600 block mb-4">check_circle</span>
+                <h3 className="text-2xl font-bold text-green-800 mb-2" style={serifStyle}>Enquiry Submitted!</h3>
+                <p className="text-green-700" style={serifStyle}>Thank you! Our admissions team will contact you within 24 hours. You can also call us directly at <strong>6207 834 778</strong>.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Student&apos;s Full Name *</label>
+                    <input type="text" required value={formData.studentName} onChange={(e) => setFormData({...formData, studentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Child's full name" style={serifStyle} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Parent / Guardian Name *</label>
+                    <input type="text" required value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Father / Mother name" style={serifStyle} />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Mobile Number *</label>
+                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="10-digit mobile number" style={serifStyle} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Date of Birth</label>
+                    <input type="date" value={formData.dob} onChange={(e) => setFormData({...formData, dob: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" style={serifStyle} />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Seeking Admission in Class *</label>
+                  <select required value={formData.class} onChange={(e) => setFormData({...formData, class: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm bg-white" style={serifStyle}>
+                    <option value="">Select class...</option>
+                    {['Play', 'LKG', 'UKG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII'].map(c => <option key={c}>{c}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Home Address</label>
+                  <textarea rows={3} value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Village / Block / District" style={serifStyle} />
+                </div>
+                <button type="submit" className="w-full py-4 bg-blue-950 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg" style={serifStyle}>Submit Enquiry</button>
+                <p className="text-xs text-on-surface-variant text-center" style={serifStyle}>Or call us directly at <a href="tel:6207834778" className="text-blue-950 font-bold underline">6207 834 778</a></p>
+              </form>
+            )}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  )
+}

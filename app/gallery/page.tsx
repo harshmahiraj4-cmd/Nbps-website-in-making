@@ -1,0 +1,218 @@
+'use client'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import Image from 'next/image'
+import { useState } from 'react'
+
+const serifStyle = { fontFamily: 'Georgia, serif' }
+
+const photos = [
+  {
+    src: '/gallery/main-gate.jpg',
+    title: 'School Main Entrance',
+    category: 'Campus',
+    desc: 'The main gate of Nation Building Public School, Bidupur, Vaishali.',
+  },
+  {
+    src: '/gallery/campus-front.jpg',
+    title: 'School Building – Front View',
+    category: 'Campus',
+    desc: 'Front view of our school building with the school bus ready for students.',
+  },
+  {
+    src: '/gallery/sports-ground.jpg',
+    title: 'Sports Ground',
+    category: 'Campus',
+    desc: 'Our spacious sports ground where students play cricket, football and kabaddi.',
+  },
+  {
+    src: '/gallery/classroom-1.jpg',
+    title: 'Primary Classroom',
+    category: 'Classrooms',
+    desc: 'Young students actively participating in their daily lessons.',
+  },
+  {
+    src: '/gallery/classroom-2.jpg',
+    title: 'Middle School Classroom',
+    category: 'Classrooms',
+    desc: 'Teacher conducting an engaging class for middle school students.',
+  },
+  {
+    src: '/gallery/classroom-3.jpg',
+    title: 'Senior Classroom',
+    category: 'Classrooms',
+    desc: 'Senior students focused on their studies in a well-organised classroom.',
+  },
+  {
+    src: '/gallery/classroom-4.jpg',
+    title: 'Students at Work',
+    category: 'Classrooms',
+    desc: 'Students diligently working on their class assignments.',
+  },
+  {
+    src: '/gallery/teaching.jpg',
+    title: 'Interactive Teaching',
+    category: 'Teaching',
+    desc: 'Our experienced teacher engaging students with interactive lessons.',
+  },
+  {
+    src: '/gallery/computer-lab.jpg',
+    title: 'Computer Laboratory',
+    category: 'Facilities',
+    desc: 'Our computer lab equipped with systems for practical IT education.',
+  },
+  {
+    src: '/gallery/primary-class.jpg',
+    title: 'Primary Section – KG Class',
+    category: 'Classrooms',
+    desc: 'Kindergarten students in their colourful and cheerful classroom.',
+  },
+]
+
+const categories = ['All', 'Campus', 'Classrooms', 'Teaching', 'Facilities']
+
+export default function GalleryPage() {
+  const [active, setActive] = useState('All')
+  const [lightbox, setLightbox] = useState<null | typeof photos[0]>(null)
+
+  const filtered = active === 'All' ? photos : photos.filter(p => p.category === active)
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="pt-[164px] flex-1">
+
+        {/* Hero */}
+        <section className="relative h-[380px] flex items-center overflow-hidden">
+          <Image src="/gallery/campus-front.jpg" alt="NBPS Campus" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-blue-950/70" />
+          <div className="relative z-10 max-w-container mx-auto px-8 w-full text-center">
+            <span className="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded mb-4 uppercase tracking-widest" style={serifStyle}>
+              Our School in Pictures
+            </span>
+            <h1 className="text-5xl font-bold text-white mb-4" style={serifStyle}>Photo Gallery</h1>
+            <p className="text-xl text-slate-200 max-w-2xl mx-auto" style={serifStyle}>
+              A glimpse into life at Nation Building Public School — our campus, classrooms, teachers, and students.
+            </p>
+          </div>
+        </section>
+
+        {/* Filter Tabs */}
+        <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-[164px] z-30">
+          <div className="max-w-container mx-auto px-8 py-4 flex gap-3 flex-wrap">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                  active === cat
+                    ? 'bg-blue-950 text-white shadow'
+                    : 'bg-surface-container-low text-blue-950 hover:bg-secondary-container'
+                }`}
+                style={serifStyle}
+              >
+                {cat}
+                <span className="ml-2 text-xs opacity-70">
+                  {cat === 'All' ? photos.length : photos.filter(p => p.category === cat).length}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Photo Grid */}
+        <section className="max-w-container mx-auto px-8 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((photo, i) => (
+              <div
+                key={i}
+                className="group bg-white rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-xl transition-all cursor-pointer"
+                onClick={() => setLightbox(photo)}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={photo.src}
+                    alt={photo.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/40 transition-all flex items-center justify-center">
+                    <span className="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 transform duration-300">
+                      zoom_in
+                    </span>
+                  </div>
+                  {/* Category badge */}
+                  <span className="absolute top-3 left-3 bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1 rounded-full" style={serifStyle}>
+                    {photo.category}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-blue-950 text-lg mb-1" style={serifStyle}>{photo.title}</h3>
+                  <p className="text-sm text-on-surface-variant" style={serifStyle}>{photo.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <div className="text-center py-20 text-on-surface-variant" style={serifStyle}>
+              No photos in this category yet.
+            </div>
+          )}
+        </section>
+
+        {/* Upload CTA */}
+        <section className="bg-surface-container-low dark:bg-gray-900 py-12 px-8">
+          <div className="max-w-container mx-auto text-center">
+            <h2 className="text-3xl font-bold text-blue-950 mb-3" style={serifStyle}>More Photos Coming Soon</h2>
+            <p className="text-lg text-on-surface-variant mb-6 max-w-xl mx-auto" style={serifStyle}>
+              We regularly update our gallery with events, celebrations, and school activities. Stay connected!
+            </p>
+            <a
+              href={`https://wa.me/916207834778?text=${encodeURIComponent('Hello! I want more information about NBPS.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-all shadow-lg"
+              style={serifStyle}
+            >
+              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us for More Info
+            </a>
+          </div>
+        </section>
+
+        {/* Lightbox */}
+        {lightbox && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={() => setLightbox(null)}
+          >
+            <div
+              className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
+              onClick={e => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setLightbox(null)}
+                className="absolute top-4 right-4 z-10 bg-blue-950 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary-container hover:text-blue-950 transition-colors"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <div className="relative aspect-video">
+                <Image src={lightbox.src} alt={lightbox.title} fill className="object-contain" />
+              </div>
+              <div className="p-6 border-t border-gray-100 dark:border-gray-700">
+                <span className="text-xs font-bold text-secondary uppercase tracking-widest mb-1 block" style={serifStyle}>{lightbox.category}</span>
+                <h3 className="text-2xl font-bold text-blue-950 mb-2" style={serifStyle}>{lightbox.title}</h3>
+                <p className="text-on-surface-variant" style={serifStyle}>{lightbox.desc}</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
+  )
+}
