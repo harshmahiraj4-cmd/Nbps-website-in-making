@@ -175,41 +175,22 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { day: '01', month: 'Jan', category: 'Academic', title: 'School Re-Opening & New Session Begins' },
-                { day: '26', month: 'Jan', category: 'Festival', title: 'Basant Panchami' },
-                { day: '26', month: 'Jan', category: 'National Event', title: 'Republic Day' },
-                { day: '15', month: 'Feb', category: 'Festival', title: 'Mahashivratri' },
-                { day: '03', month: 'Mar', category: 'Festival', title: 'Holi' },
-                { day: '21', month: 'Mar', category: 'School Event', title: 'Annual Sports Day' },
-                { day: '03', month: 'Apr', category: 'Holiday', title: 'Good Friday' },
-                { day: '14', month: 'Apr', category: 'Holiday', title: 'Ambedkar Jayanti' },
-                { day: '15', month: 'May', category: 'Academic', title: 'Summer Vacation Begins' },
-                { day: '01', month: 'Jul', category: 'Academic', title: 'School Re-Opens After Summer Break' },
-                { day: '17', month: 'Jul', category: 'Holiday', title: 'Muharram' },
-                { day: '15', month: 'Aug', category: 'National Event', title: 'Independence Day' },
-                { day: '26', month: 'Aug', category: 'Festival', title: 'Janmashtami' },
-                { day: '05', month: 'Sep', category: 'School Event', title: "Teachers' Day" },
-                { day: '02', month: 'Oct', category: 'National Event', title: 'Gandhi Jayanti' },
-                { day: '16', month: 'Oct', category: 'Festival', title: 'Dussehra' },
-                { day: '10', month: 'Nov', category: 'Holiday', title: 'Diwali Break' },
-                { day: '24', month: 'Nov', category: 'Festival', title: 'Guru Nanak Jayanti' },
-                { day: '25', month: 'Dec', category: 'Festival', title: 'Christmas Day' },
-                { day: '31', month: 'Dec', category: 'Academic', title: 'Winter Vacation Begins' },
-                { day: '17', month: 'Jan', category: 'School Event', title: 'Annual Day Celebration' },
-              ].map((event, idx) => (
-                <div key={idx} className="group flex items-center bg-white p-5 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-lg transition-all cursor-pointer">
-                  <div className="flex-shrink-0 w-16 h-16 bg-surface-container-low dark:bg-gray-700 rounded-lg flex flex-col items-center justify-center text-blue-950 dark:text-blue-200 group-hover:bg-secondary-container dark:hover:bg-gray-700 transition-colors">
-                    <span className="text-xl font-bold" style={serifStyle}>{event.day}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider" style={serifStyle}>{event.month}</span>
-                  </div>
-                  <div className="ml-5 flex-grow">
-                    <div className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1" style={serifStyle}>{event.category}</div>
-                    <h4 className="text-base font-bold text-blue-950 dark:text-gray-100 group-hover:text-secondary transition-colors leading-tight" style={serifStyle}>{event.title}</h4>
-                  </div>
+            <div className="flex justify-center mt-8">
+              <a href="/academic_calendar_2026.jpg" target="_blank" rel="noopener noreferrer" className="block relative group w-full max-w-5xl">
+                <Image
+                  src="/academic_calendar_2026.jpg"
+                  alt="Academic Calendar 2026 - Nation Building Public School" 
+                  width={1200} 
+                  height={800}
+                  className="w-full h-auto rounded-xl shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-[1.01]"
+                  priority
+                />
+                <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/20 transition-all rounded-xl flex items-center justify-center">
+                   <span className="material-symbols-outlined text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 transform duration-300 drop-shadow-lg">
+                     zoom_in
+                   </span>
                 </div>
-              ))}
+              </a>
             </div>
           </div>
         </section>
