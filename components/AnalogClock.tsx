@@ -11,7 +11,7 @@ export default function AnalogClock() {
   }, [])
 
   if (!time) {
-    return <div className="w-14 h-14 rounded-full border-2 border-amber-500 bg-white" />
+    return <div className="w-16 h-16 rounded-full border-[3px] border-amber-500 bg-white" />
   }
 
   const secondsDegrees = (time.getSeconds() / 60) * 360
@@ -20,7 +20,7 @@ export default function AnalogClock() {
 
   return (
     <div 
-      className="relative w-14 h-14 rounded-full shadow-[0_8px_15px_-3px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-4px_8px_rgba(0,0,0,0.6)] flex items-center justify-center flex-shrink-0 bg-cover bg-center overflow-hidden border-[3px] border-amber-500 border-t-amber-300 border-b-amber-700"
+      className="relative w-16 h-16 rounded-full shadow-[0_8px_15px_-3px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-4px_8px_rgba(0,0,0,0.6)] flex items-center justify-center flex-shrink-0 bg-cover bg-center overflow-hidden border-[3px] border-amber-500 border-t-amber-300 border-b-amber-700"
       style={{ backgroundImage: 'url(/nbps-logo.jpg)' }}
     >
       {/* Dark overlay for contrast */}
@@ -29,7 +29,7 @@ export default function AnalogClock() {
       {/* 3D Glass Reflection Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/5 to-black/30 rounded-full z-0 pointer-events-none" />
       {/* Center dot */}
-      <div className="absolute w-2.5 h-2.5 bg-blue-950 rounded-full z-20 shadow-md border border-gray-400" />
+      <div className="absolute w-3 h-3 bg-blue-950 rounded-full z-20 shadow-md border border-gray-400" />
       
       {/* Hour hand */}
       <div 
