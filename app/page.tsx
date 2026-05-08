@@ -24,7 +24,7 @@ export default function HomePage() {
           <div className="relative max-w-container mx-auto px-8 w-full">
             <div className="max-w-2xl">
               <div className="inline-block px-4 py-1.5 bg-amber-400/20 border border-amber-400/50 rounded mb-4">
-                <span className="text-amber-300 text-sm font-semibold tracking-widest uppercase" style={serifStyle}>We Will Shine Together</span>
+                <span className="text-amber-300 text-sm font-semibold tracking-widest uppercase italic" style={serifStyle}>We Will Shine Together</span>
               </div>
               <h1 className="text-5xl font-bold text-white mb-3 leading-tight" style={serifStyle}>
                 Nation Building<br/>Public School
@@ -122,7 +122,7 @@ export default function HomePage() {
                   &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
                 </p>
                 <p className="text-base font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
-                  We Will Shine Together
+                  <em>We Will Shine Together</em>
                 </p>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
                   &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
                 </p>
                 <p className="text-base font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
-                  We Will Shine Together
+                  <em>We Will Shine Together</em>
                 </p>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
                   &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
                 </p>
                 <p className="text-base font-bold uppercase tracking-widest text-amber-500 mb-8" style={serifStyle}>
-                  We Will Shine Together
+                  <em>We Will Shine Together</em>
                 </p>
                 <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                   {[
