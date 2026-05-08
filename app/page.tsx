@@ -72,6 +72,32 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>Guiding Nation Building Public School</h2>
           </div>
 
+          {/* Director */}
+          <div className="flex flex-col lg:flex-row gap-gutter items-center mb-24">
+            <div className="lg:w-1/2">
+              <div className="relative group animate-float cursor-pointer">
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-amber-400/20 rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:translate-x-3 group-hover:translate-y-3 group-active:translate-x-3 group-active:translate-y-3" />
+                <Image
+                  src="/director.jpg"
+                  alt="Mr. Abhaykant Kumar - Director" width={560} height={800}
+                  className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
+                  unoptimized={true} quality={100}
+                />
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Director</span>
+              <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Abhaykant Kumar</h2>
+              <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
+              <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
+                &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
+              </p>
+              <p className="text-base text-on-surface-variant mb-8 leading-relaxed font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
+                We Will Shine Together
+              </p>
+            </div>
+          </div>
+
           {/* Deputy Director */}
           <div className="flex flex-col lg:flex-row-reverse gap-gutter items-center mb-24">
             <div className="lg:w-1/2">
@@ -97,6 +123,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+
 
           {/* Mentor / Founder */}
           <div className="flex flex-col lg:flex-row gap-gutter items-center">
