@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-800">
-        <div className="flex justify-between items-center h-20 px-6 max-w-container mx-auto">
+        <div className="flex justify-between items-center h-24 px-6 max-w-container mx-auto">
 
           {/* Logo and Clock */}
           <Link href="/" className="flex items-center gap-3">
