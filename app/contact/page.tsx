@@ -11,6 +11,16 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Construct email parameters
+    const subject = encodeURIComponent(`Website Enquiry: ${formData.subject}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}\n\nMessage:\n${formData.message}`
+    )
+    
+    // Open default mail client
+    window.location.href = `mailto:nationbuildingpublicschool@gmail.com?subject=${subject}&body=${body}`
+    
     setSubmitted(true)
   }
 

@@ -4,8 +4,29 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
-  title: 'Nation Building Public School – NBPS, Bidupur',
-  description: 'Nation Building Public School – An English Medium CBSE affiliated school in Daud Nagar Chakgadho, Bidupur, Vaishali, Bihar. Admissions open for 2025–26. Call: 6207 834 778.',
+  title: 'Nation Building Public School (NBPS) | Best CBSE School in Bidupur',
+  description: 'Nation Building Public School (NBPS) – An English Medium CBSE affiliated school in Daud Nagar Chakgadho, Bidupur, Vaishali, Bihar. Admissions open for 2026–27. We Will Shine Together.',
+  keywords: 'NBPS, Nation Building Public School, Best school in Bidupur, CBSE school Vaishali, schools in Bihar, English medium school Daud Nagar',
+  icons: {
+    icon: '/nbps-logo.jpg',
+    apple: '/nbps-logo.jpg',
+  },
+  openGraph: {
+    title: 'Nation Building Public School (NBPS)',
+    description: 'Admissions Open for 2026-27. We Will Shine Together.',
+    url: 'https://nbps.edu.in',
+    siteName: 'Nation Building Public School',
+    images: [
+      {
+        url: '/gallery/campus-front.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NBPS Campus Front',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
