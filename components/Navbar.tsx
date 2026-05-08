@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import Image from 'next/image'
 import DarkModeToggle from './DarkModeToggle'
+import AnalogClock from './AnalogClock'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -49,8 +50,9 @@ export default function Navbar() {
       <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-800">
         <div className="flex justify-between items-center h-20 px-6 max-w-container mx-auto">
 
-          {/* Logo */}
+          {/* Logo and Clock */}
           <Link href="/" className="flex items-center gap-3">
+            <AnalogClock />
             <Image
               src="/nbps-logo.jpg"
               alt="NBPS Logo"
