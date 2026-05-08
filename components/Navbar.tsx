@@ -53,14 +53,6 @@ export default function Navbar() {
           {/* Logo and Clock */}
           <Link href="/" className="flex items-center gap-3">
             <AnalogClock />
-            <Image
-              src="/nbps-logo.jpg"
-              alt="NBPS Logo"
-              width={56}
-              height={56}
-              className="rounded-full object-contain"
-              priority
-            />
             <div className="flex flex-col leading-tight">
               <span className="text-base font-black text-blue-950 dark:text-blue-300 uppercase tracking-tight hidden sm:block" style={{fontFamily:'Georgia,serif'}}>
                 Nation Building Public School
