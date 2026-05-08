@@ -181,3 +181,11 @@ html.dark footer { background-color: #0a0f1e !important; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ══════════════════════════════════
+   NOTICE BOARD TICKER
+══════════════════════════════════ */
+@keyframes ticker {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

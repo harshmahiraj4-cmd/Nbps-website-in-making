@@ -64,7 +64,67 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Notice Board */}
+        <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f2044 0%, #1a3560 50%, #0f2044 100%)' }}>
+          {/* Dot pattern */}
+          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+
+          {/* Scrolling Ticker */}
+          <div className="bg-amber-500 text-blue-950 py-2 px-4 flex items-center gap-4 overflow-hidden relative">
+            <span className="flex-shrink-0 font-black uppercase tracking-widest text-xs bg-blue-950 text-amber-400 px-3 py-1 rounded flex items-center gap-1" style={serifStyle}>
+              <span className="material-symbols-outlined text-sm">campaign</span> NOTICE
+            </span>
+            <div className="overflow-hidden flex-1">
+              <p className="whitespace-nowrap animate-[ticker_20s_linear_infinite] inline-block font-semibold text-sm" style={serifStyle}>
+                🎓 Admissions Open for Session 2026–27 &nbsp;•&nbsp; 📅 Annual Sports Day – June 15, 2026 &nbsp;•&nbsp; 📢 Parent-Teacher Meeting – May 20, 2026 &nbsp;•&nbsp; 🏆 Results of Class VIII Board Exams declared &nbsp;•&nbsp; 🌟 School reopens after Summer Vacation on July 1, 2026
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-container mx-auto px-8 py-14 relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+              <div>
+                <span className="text-amber-400 font-semibold text-sm mb-2 block uppercase tracking-widest" style={serifStyle}>Latest Updates</span>
+                <h2 className="text-3xl font-bold text-white" style={serifStyle}>Notice Board</h2>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 border border-white/20 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/20 transition-all cursor-pointer" style={serifStyle}>
+                <span className="material-symbols-outlined text-amber-400 text-base">notifications</span>
+                View All Notices
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { tag: 'Admission', tagColor: 'bg-green-400 text-green-950', icon: 'school', date: 'May 8, 2026', title: 'Admissions Open 2026–27', desc: 'Enrolment is now open for all classes from Play Group to Class VIII. Limited seats available. Apply early to secure admission.' },
+                { tag: 'Event', tagColor: 'bg-amber-400 text-amber-950', icon: 'event', date: 'May 20, 2026', title: 'Parent-Teacher Meeting', desc: 'All parents are requested to attend the PTM on May 20, 2026. Meeting will be held class-wise from 9:00 AM to 1:00 PM.' },
+                { tag: 'Holiday', tagColor: 'bg-sky-400 text-sky-950', icon: 'beach_access', date: 'May 25, 2026', title: 'Summer Vacation Notice', desc: 'School will remain closed for Summer Vacation from May 25 to June 30, 2026. Classes resume on July 1, 2026.' },
+                { tag: 'Sports', tagColor: 'bg-orange-400 text-orange-950', icon: 'sports', date: 'June 15, 2026', title: 'Annual Sports Day 2026', desc: 'Annual Sports Day will be held on June 15, 2026. All students are encouraged to participate in track & field events.' },
+                { tag: 'Exam', tagColor: 'bg-red-400 text-red-950', icon: 'assignment', date: 'May 10, 2026', title: 'Unit Test Schedule Released', desc: 'The schedule for Unit Test 1 has been released. Students are advised to check their timetable and prepare accordingly.' },
+                { tag: 'General', tagColor: 'bg-purple-400 text-purple-950', icon: 'info', date: 'May 8, 2026', title: 'School Fee Reminder', desc: 'Parents are reminded to clear pending fee dues before May 15, 2026. Contact the accounts section for any queries.' },
+              ].map((notice) => (
+                <div key={notice.title} className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:bg-white/15 hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 cursor-pointer group">
+                  <div className="flex items-start justify-between mb-3 gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <span className="material-symbols-outlined text-amber-400 text-base">{notice.icon}</span>
+                      </div>
+                      <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded ${notice.tagColor}`}>{notice.tag}</span>
+                    </div>
+                    <span className="text-xs text-blue-300 flex-shrink-0 flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[12px]">calendar_today</span>
+                      {notice.date}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-white mb-2 text-base group-hover:text-amber-300 transition-colors" style={serifStyle}>{notice.title}</h3>
+                  <p className="text-blue-200 text-xs leading-relaxed" style={serifStyle}>{notice.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Quick Links */}
+
         <section style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%)' }} className="border-b border-gray-200">
           <div className="max-w-container mx-auto px-8 py-14">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
