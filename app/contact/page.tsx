@@ -110,9 +110,9 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 { icon: 'school', name: 'Admissions Office', info: 'For new admissions, seat availability, and fee enquiries.', phone: '6207 834 778', email: 'nationbuildingpublicschool@gmail.com' },
-                { icon: 'account_balance', name: 'Principal\'s Office', info: 'For academic matters, discipline, and school policies.', phone: '6207 834 778', email: 'principal@nbps.edu.in' },
-                { icon: 'payments', name: 'Fee & Accounts', info: 'For fee receipts, concession requests, and payment queries.', phone: '6207 834 778', email: 'accounts@nbps.edu.in' },
-                { icon: 'sports', name: 'Academic & Co-curricular', info: 'For syllabus queries, events, sports, and activities.', phone: '6207 834 778', email: 'academic@nbps.edu.in' },
+                { icon: 'account_balance', name: 'Principal\'s Office', info: 'For academic matters, discipline, and school policies.', phone: '9708 573 000', email: 'nationbuildingpublicschool@gmail.com' },
+                { icon: 'payments', name: 'Fee & Accounts', info: 'For fee receipts, concession requests, and payment queries.', phone: '6204 255 099', email: 'nationbuildingpublicschool@gmail.com' },
+                { icon: 'sports', name: 'Academic & Co-curricular', info: 'For syllabus queries, events, sports, and activities.', phone: '9708 573 000', email: 'nationbuildingpublicschool@gmail.com' },
               ].map((dept) => (
                 <div key={dept.name} className="bg-white p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition-all">
                   <div className="flex items-start gap-4">
