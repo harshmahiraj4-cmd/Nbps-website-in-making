@@ -7,7 +7,7 @@ const serifStyle = { fontFamily: 'Georgia, serif' }
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #f8f6f0 0%, #eef2ff 50%, #fef9ec 100%)' }}>
       <Navbar />
       <main className="pt-[164px] flex-1">
 
@@ -18,7 +18,9 @@ export default function HomePage() {
             alt="Nation Building Public School Campus"
             fill className="object-cover" priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/85 to-blue-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-900/70 to-blue-950/30" />
+          {/* Decorative shimmer lines */}
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,215,0,0.4) 40px, rgba(255,215,0,0.4) 41px)' }} />
           <div className="relative max-w-container mx-auto px-8 w-full">
             <div className="max-w-2xl">
               <div className="inline-block px-4 py-1.5 bg-amber-400/20 border border-amber-400/50 rounded mb-4">
@@ -43,9 +45,28 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Stats Strip */}
+        <section style={{ background: 'linear-gradient(90deg, #1e3a5f 0%, #1a3050 50%, #1e3a5f 100%)' }}>
+          <div className="max-w-container mx-auto px-8 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: 'CBSE', label: 'Affiliated Board' },
+                { value: '100%', label: 'Pass Rate' },
+                { value: 'Play–VIII', label: 'Classes Offered' },
+                { value: '2026–27', label: 'Session' },
+              ].map((stat) => (
+                <div key={stat.label} className="text-white">
+                  <div className="text-3xl font-bold text-amber-400 mb-1" style={serifStyle}>{stat.value}</div>
+                  <div className="text-sm text-blue-200 uppercase tracking-widest font-semibold" style={serifStyle}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Quick Links */}
-        <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-          <div className="max-w-container mx-auto px-8 py-12">
+        <section style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%)' }} className="border-b border-gray-200">
+          <div className="max-w-container mx-auto px-8 py-14">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { icon: 'account_balance_wallet', title: 'Student Portal', desc: 'Access grades & results' },
@@ -53,8 +74,10 @@ export default function HomePage() {
                 { icon: 'menu_book', title: 'CBSE Curriculum', desc: 'Syllabus & study material' },
                 { icon: 'map', title: 'Find Our School', desc: 'Bidupur, Vaishali, Bihar' },
               ].map((item) => (
-                <a key={item.title} href="#" className="flex items-center gap-4 p-6 bg-surface-container-low rounded-xl group hover:bg-secondary-container dark:hover:bg-gray-700 transition-all duration-300">
-                  <span className="material-symbols-outlined text-4xl text-blue-950 group-hover:scale-110 transition-transform">{item.icon}</span>
+                <a key={item.title} href="#" className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm border border-blue-100 group hover:shadow-lg hover:border-amber-400 hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-950 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 transition-colors">
+                    <span className="material-symbols-outlined text-2xl text-amber-400 group-hover:text-white transition-colors">{item.icon}</span>
+                  </div>
                   <div>
                     <div className="font-bold text-blue-950" style={serifStyle}>{item.title}</div>
                     <div className="text-sm text-on-surface-variant">{item.desc}</div>
@@ -66,111 +89,120 @@ export default function HomePage() {
         </section>
 
         {/* Leadership Section */}
-        <section className="py-stack-lg max-w-container mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="text-secondary font-semibold text-sm mb-3 block uppercase tracking-widest" style={serifStyle}>Our Leadership</span>
-            <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>Guiding Nation Building Public School</h2>
-          </div>
+        <section className="py-stack-lg relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #fef9ec 0%, #fff8e7 40%, #eef2ff 100%)' }}>
+          {/* Decorative background orbs */}
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-20 -translate-y-1/2 translate-x-1/2" style={{ background: 'radial-gradient(circle, #fbbf24 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-15 translate-y-1/2 -translate-x-1/2" style={{ background: 'radial-gradient(circle, #3b82f6 0%, transparent 70%)' }} />
 
-          {/* Director */}
-          <div className="flex flex-col lg:flex-row gap-gutter items-center mb-24">
-            <div className="lg:w-1/2">
-              <div className="relative group animate-float cursor-pointer">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-amber-400/20 rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:translate-x-3 group-hover:translate-y-3 group-active:translate-x-3 group-active:translate-y-3" />
-                <Image
-                  src="/director.jpg"
-                  alt="Mr. Abhaykant Kumar - Director" width={560} height={800}
-                  className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                  unoptimized={true} quality={100}
-                />
+          <div className="max-w-container mx-auto px-8 relative z-10">
+            <div className="text-center mb-16">
+              <span className="text-secondary font-semibold text-sm mb-3 block uppercase tracking-widest" style={serifStyle}>Our Leadership</span>
+              <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>Guiding Nation Building Public School</h2>
+              <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full" />
+            </div>
+
+            {/* Director */}
+            <div className="flex flex-col lg:flex-row gap-gutter items-center mb-24">
+              <div className="lg:w-1/2">
+                <div className="relative group animate-float cursor-pointer">
+                  <div className="absolute -top-4 -left-4 w-24 h-24 bg-amber-400/20 rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:translate-x-3 group-hover:translate-y-3 group-active:translate-x-3 group-active:translate-y-3" />
+                  <Image
+                    src="/director.jpg"
+                    alt="Mr. Abhaykant Kumar - Director" width={560} height={800}
+                    className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
+                    unoptimized={true} quality={100}
+                  />
+                </div>
+              </div>
+              <div className="lg:w-1/2 bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-amber-100">
+                <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Director</span>
+                <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Abhaykant Kumar</h2>
+                <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
+                <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
+                  &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
+                </p>
+                <p className="text-base font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
+                  We Will Shine Together
+                </p>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Director</span>
-              <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Abhaykant Kumar</h2>
-              <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
-              <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
-                &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
-              </p>
-              <p className="text-base text-on-surface-variant mb-8 leading-relaxed font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
-                We Will Shine Together
-              </p>
-            </div>
-          </div>
 
-          {/* Deputy Director */}
-          <div className="flex flex-col lg:flex-row-reverse gap-gutter items-center mb-24">
-            <div className="lg:w-1/2">
-              <div className="relative group animate-float cursor-pointer">
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3 group-active:-translate-x-3 group-active:-translate-y-3" />
-                <Image
-                  src="/deputy_director.jpg"
-                  alt="Mr. Ranvir Singh - Deputy Director" width={560} height={800}
-                  className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                  unoptimized={true} quality={100}
-                />
+            {/* Deputy Director */}
+            <div className="flex flex-col lg:flex-row-reverse gap-gutter items-center mb-24">
+              <div className="lg:w-1/2">
+                <div className="relative group animate-float cursor-pointer">
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3 group-active:-translate-x-3 group-active:-translate-y-3" />
+                  <Image
+                    src="/deputy_director.jpg"
+                    alt="Mr. Ranvir Singh - Deputy Director" width={560} height={800}
+                    className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
+                    unoptimized={true} quality={100}
+                  />
+                </div>
+              </div>
+              <div className="lg:w-1/2 bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100">
+                <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Deputy Director</span>
+                <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Ranvir Singh</h2>
+                <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
+                <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
+                  &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
+                </p>
+                <p className="text-base font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
+                  We Will Shine Together
+                </p>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Deputy Director</span>
-              <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Ranvir Singh</h2>
-              <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
-              <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
-                &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
-              </p>
-              <p className="text-base text-on-surface-variant mb-8 leading-relaxed font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
-                We Will Shine Together
-              </p>
-            </div>
-          </div>
 
-
-          {/* Mentor / Founder */}
-          <div className="flex flex-col lg:flex-row gap-gutter items-center">
-            <div className="lg:w-1/2">
-              <div className="relative group animate-float-delayed cursor-pointer">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-secondary-container rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:translate-x-3 group-hover:translate-y-3 group-active:translate-x-3 group-active:translate-y-3" />
-                <Image
-                  src="/founder.jpg"
-                  alt="Mr. Suryakant Kumar Kariyappa - Mentor" width={560} height={800}
-                  className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                  unoptimized={true} quality={100}
-                />
+            {/* Mentor / Founder */}
+            <div className="flex flex-col lg:flex-row gap-gutter items-center">
+              <div className="lg:w-1/2">
+                <div className="relative group animate-float-delayed cursor-pointer">
+                  <div className="absolute -top-4 -left-4 w-24 h-24 bg-secondary-container rounded-lg -z-10 transition-transform duration-700 ease-out group-hover:translate-x-3 group-hover:translate-y-3 group-active:translate-x-3 group-active:translate-y-3" />
+                  <Image
+                    src="/founder.jpg"
+                    alt="Mr. Suryakant Kumar Kariyappa - Mentor" width={560} height={800}
+                    className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
+                    unoptimized={true} quality={100}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="lg:w-1/2">
-              <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Mentor</span>
-              <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Suryakant Kumar Kariyappa</h2>
-              <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
-              <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
-                &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
-              </p>
-              <p className="text-base text-on-surface-variant mb-8 leading-relaxed font-bold uppercase tracking-widest text-amber-500" style={serifStyle}>
-                We Will Shine Together
-              </p>
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-                {[
-                  { value: 'CBSE', label: 'Affiliated Board' },
-                  { value: '100%', label: 'Pass Rate' },
-                  { value: 'Play–VIII', label: 'Classes Offered' },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-3xl font-bold text-blue-950 mb-1" style={serifStyle}>{stat.value}</div>
-                    <div className="text-sm font-semibold text-secondary uppercase tracking-wide" style={serifStyle}>{stat.label}</div>
-                  </div>
-                ))}
+              <div className="lg:w-1/2 bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-amber-100">
+                <span className="text-secondary font-semibold text-sm mb-4 block uppercase tracking-widest" style={serifStyle}>Mentor</span>
+                <h2 className="text-4xl font-bold text-blue-950 mb-2 leading-tight" style={serifStyle}>Mr. Suryakant Kumar Kariyappa</h2>
+                <p className="text-lg text-blue-950/70 mb-6 font-semibold uppercase tracking-wide" style={serifStyle}>Leadership with Vision • Commitment to Excellence</p>
+                <p className="text-lg text-on-surface-variant mb-6 italic leading-relaxed" style={serifStyle}>
+                  &quot;Dedicated to excellence in education and nation building. Inspiring minds, shaping character, and creating a better tomorrow.&quot;
+                </p>
+                <p className="text-base font-bold uppercase tracking-widest text-amber-500 mb-8" style={serifStyle}>
+                  We Will Shine Together
+                </p>
+                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                  {[
+                    { value: 'CBSE', label: 'Affiliated Board' },
+                    { value: '100%', label: 'Pass Rate' },
+                    { value: 'Play–VIII', label: 'Classes Offered' },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <div className="text-3xl font-bold text-blue-950 mb-1" style={serifStyle}>{stat.value}</div>
+                      <div className="text-sm font-semibold text-secondary uppercase tracking-wide" style={serifStyle}>{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Why Choose NBPS */}
-        <section className="py-stack-lg bg-surface-container-low dark:bg-gray-900">
-          <div className="max-w-container mx-auto px-8">
+        <section className="py-stack-lg relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #162d4e 50%, #1a3558 100%)' }}>
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+          <div className="max-w-container mx-auto px-8 relative z-10">
             <div className="text-center mb-12">
-              <span className="text-secondary font-semibold text-sm mb-3 block uppercase tracking-widest" style={serifStyle}>Why Choose Us</span>
-              <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>What Makes NBPS Special</h2>
-              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto" style={serifStyle}>We go beyond textbooks — developing well-rounded individuals ready to lead and serve.</p>
+              <span className="text-amber-400 font-semibold text-sm mb-3 block uppercase tracking-widest" style={serifStyle}>Why Choose Us</span>
+              <h2 className="text-4xl font-bold text-white mb-4" style={serifStyle}>What Makes NBPS Special</h2>
+              <p className="text-lg text-blue-200 max-w-2xl mx-auto" style={serifStyle}>We go beyond textbooks — developing well-rounded individuals ready to lead and serve.</p>
+              <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full mt-6" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
@@ -181,27 +213,29 @@ export default function HomePage() {
                 { icon: 'security', title: 'Safe Environment', desc: 'A secure, inclusive, and disciplined campus where every child feels respected and motivated to learn.' },
                 { icon: 'emoji_events', title: 'Proven Results', desc: 'Consistent board exam results and a track record of students entering top colleges and careers.' },
               ].map((item) => (
-                <div key={item.title} className="bg-white p-8 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition-all group">
-                  <div className="w-12 h-12 bg-blue-950 rounded-lg flex items-center justify-center mb-5 group-hover:bg-secondary-container dark:hover:bg-gray-700 transition-colors">
-                    <span className="material-symbols-outlined text-amber-400 group-hover:text-blue-950">{item.icon}</span>
+                <div key={item.title} className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:border-amber-400/60 hover:bg-white/15 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                  <div className="w-12 h-12 bg-amber-400/20 rounded-lg flex items-center justify-center mb-5 group-hover:bg-amber-400 transition-colors border border-amber-400/30">
+                    <span className="material-symbols-outlined text-amber-400 group-hover:text-blue-950 transition-colors">{item.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-blue-950 mb-3" style={serifStyle}>{item.title}</h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed" style={serifStyle}>{item.desc}</p>
+                  <h3 className="text-xl font-bold text-white mb-3" style={serifStyle}>{item.title}</h3>
+                  <p className="text-blue-200 text-sm leading-relaxed" style={serifStyle}>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Event List Section */}
-        <section className="py-stack-lg bg-surface-container-low dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-          <div className="max-w-container mx-auto px-8">
+        {/* Academic Calendar */}
+        <section className="py-stack-lg relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #fffbf0 0%, #fef3c7 40%, #fff8e7 100%)' }}>
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-30 -translate-y-1/3 translate-x-1/3" style={{ background: 'radial-gradient(circle, #fbbf24 0%, transparent 70%)' }} />
+          <div className="max-w-container mx-auto px-8 relative z-10">
             <div className="text-center mb-16">
               <span className="text-secondary font-semibold text-sm mb-3 block uppercase tracking-widest" style={serifStyle}>Academic Calendar – 2026</span>
               <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>Important Dates & Events</h2>
               <p className="text-lg text-on-surface-variant max-w-2xl mx-auto" style={serifStyle}>
                 Stay informed about all our holidays, national events, and school celebrations for the academic year 2026.
               </p>
+              <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full mt-6" />
             </div>
             
             <div className="flex justify-center mt-8">
@@ -225,17 +259,18 @@ export default function HomePage() {
         </section>
 
         {/* CTA Banner */}
-        <section className="bg-blue-950 py-20 px-8">
-          <div className="max-w-container mx-auto text-center">
-            <h2 className="text-4xl font-bold text-white mb-4" style={serifStyle}>Admissions Open for Session 2026–27</h2>
-            <p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto" style={serifStyle}>
+        <section className="relative py-20 px-8 overflow-hidden" style={{ background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 40%, #d97706 100%)' }}>
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0,0,0,0.3) 30px, rgba(0,0,0,0.3) 31px)' }} />
+          <div className="max-w-container mx-auto text-center relative z-10">
+            <h2 className="text-4xl font-bold text-blue-950 mb-4" style={serifStyle}>Admissions Open for Session 2026–27</h2>
+            <p className="text-lg text-blue-950/80 mb-8 max-w-2xl mx-auto" style={serifStyle}>
               Give your child the gift of quality education. Secure your seat at Nation Building Public School today.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/admissions" className="px-8 py-4 bg-secondary-container text-on-secondary-fixed rounded-lg font-semibold shadow-xl hover:-translate-y-1 transition-transform" style={serifStyle}>
+              <Link href="/admissions" className="px-8 py-4 bg-blue-950 text-white rounded-lg font-semibold shadow-xl hover:-translate-y-1 transition-transform" style={serifStyle}>
                 Apply for Admission
               </Link>
-              <Link href="/contact" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all" style={serifStyle}>
+              <Link href="/contact" className="px-8 py-4 border-2 border-blue-950 text-blue-950 rounded-lg font-semibold hover:bg-blue-950 hover:text-white transition-all" style={serifStyle}>
                 Call: 6207 834 778
               </Link>
             </div>
