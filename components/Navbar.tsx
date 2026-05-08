@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
         
         {/* Contact Details */}
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-blue-100">
+        <div className="hidden md:flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-blue-100">
           <a href="tel:6207834778" className="flex items-center gap-1 hover:text-white transition-colors">
             <span className="material-symbols-outlined text-[14px]">call</span> 6207 834 778
           </a>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-800">
-        <div className="flex justify-between items-center h-24 px-6 max-w-container mx-auto">
+        <div className="flex justify-between items-center h-20 md:h-24 px-4 md:px-6 max-w-container mx-auto">
 
           {/* Logo and Clock */}
           <Link href="/" className="flex items-center gap-3">
