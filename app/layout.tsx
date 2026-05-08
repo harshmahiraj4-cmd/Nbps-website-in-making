@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Nation Building Public School (NBPS) | Best CBSE School in Bidupur',
-  description: 'Nation Building Public School (NBPS) – An English Medium CBSE affiliated school in Daud Nagar Chakgadho, Bidupur, Vaishali, Bihar. Admissions open for 2027–28. We Will Shine Together.',
+  description: 'Nation Building Public School (NBPS) – An English Medium CBSE affiliated school in Daud Nagar Chakgadho, Bidupur, Vaishali, Bihar. Admissions open for 2026–27. We Will Shine Together.',
   keywords: 'NBPS, Nation Building Public School, Best school in Bidupur, CBSE school Vaishali, schools in Bihar, English medium school Daud Nagar',
   icons: {
     icon: '/nbps-logo.jpg',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Nation Building Public School (NBPS)',
-    description: 'Admissions Open for 2027-28. We Will Shine Together.',
+    description: 'Admissions Open for 2026-27. We Will Shine Together.',
     url: 'https://nbps.edu.in',
     siteName: 'Nation Building Public School',
     images: [
