@@ -176,9 +176,9 @@ export default function HomePage() {
             </div>
             
             <div className="flex justify-center mt-8">
-              <a href="/academic_calendar_2026.jpg" target="_blank" rel="noopener noreferrer" className="block relative group w-full max-w-5xl">
+              <a href="/academic-calendar-poster.jpg" target="_blank" rel="noopener noreferrer" className="block relative group w-full max-w-5xl">
                 <Image
-                  src="/academic_calendar_2026.jpg"
+                  src="/academic-calendar-poster.jpg"
                   alt="Academic Calendar 2026 - Nation Building Public School" 
                   width={1200} 
                   height={800}
