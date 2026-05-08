@@ -58,6 +58,16 @@ const config: Config = {
         'background': '#f8f9ff',
         'on-background': '#121c2a',
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out infinite 3s',
+      },
       borderRadius: {
         DEFAULT: '0.25rem',
         lg: '0.5rem',

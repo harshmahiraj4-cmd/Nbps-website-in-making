@@ -43,7 +43,10 @@ export default function WhatsAppButton() {
       </div>
 
       {/* WhatsApp Green Button */}
-      <div className="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110 relative cursor-pointer">
+      <div 
+        onClick={() => setHovered(!hovered)}
+        className="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110 relative cursor-pointer"
+      >
         {/* Pulse ring */}
         <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-30 pointer-events-none" />
         {/* WhatsApp SVG icon */}
