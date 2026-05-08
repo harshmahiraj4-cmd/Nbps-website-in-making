@@ -44,16 +44,16 @@ export default function AdmissionsPage() {
         {/* Hero */}
         <section className="relative h-[500px] flex items-center overflow-hidden bg-primary-container">
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQkCrvFL4fe6FelfwyTDhC4JdnWwHG4HDpCKw-E5OuRcD2cnrjlSvLn3yebmGILtwvBZ0Y4aHEQlflA7n5aF51JqnY1FUYobj8olnGo8w3yDWM7yWB9hkm3RuPtLDw_57TZqgkM3LP1Pl_6Itpx3om4VcupkLr_PX86J7ESDQHagctSoeDvu77cpn_Tj0dI2ztUVWmWbki-YXvorNOhDInJK3GOU5xGZmr2qaaMTrmb7jKY6wErYgmLYo2RyGH-K25ya9gBZh8Cmo"
-            alt="NBPS Admissions" fill className="object-cover opacity-50" priority
+            src="/admissions-building.jpg"
+            alt="NBPS Admissions" fill className="object-cover opacity-60" priority unoptimized={true} quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/50 to-transparent" />
           <div className="relative z-10 max-w-container mx-auto px-8 w-full">
             <div className="max-w-2xl">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm mb-6 uppercase tracking-widest" style={serifStyle}>Admissions 2025–26</span>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm mb-6 uppercase tracking-widest" style={serifStyle}>Admissions 2027–28</span>
               <h1 className="text-5xl font-bold text-white mb-5" style={serifStyle}>Join NBPS Family</h1>
               <p className="text-xl text-on-primary-container mb-8 max-w-xl" style={serifStyle}>
-                Enrol your child at NBPS for quality CBSE education from Play to Class VIII. Admissions open for session 2025–26.
+                Enrol your child at NBPS for quality CBSE education from Play to Class VIII. Admissions open for session 2027–28.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="#apply" className="font-semibold bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg hover:brightness-110 transition-all" style={serifStyle}>Apply Online</a>
@@ -107,7 +107,7 @@ export default function AdmissionsPage() {
             {/* Fee Structure */}
             <div>
               <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Fee Structure</span>
-              <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Tuition Fees 2025–26</h2>
+              <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Tuition Fees 2027–28</h2>
               <div className="space-y-4">
                 {feeStructure.map((f) => (
                   <div key={f.level} className="bg-white p-6 rounded-xl border border-gray-100 dark:border-gray-700">

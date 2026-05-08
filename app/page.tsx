@@ -200,7 +200,7 @@ export default function HomePage() {
         {/* CTA Banner */}
         <section className="bg-blue-950 py-20 px-8">
           <div className="max-w-container mx-auto text-center">
-            <h2 className="text-4xl font-bold text-white mb-4" style={serifStyle}>Admissions Open for Session 2026–27</h2>
+            <h2 className="text-4xl font-bold text-white mb-4" style={serifStyle}>Admissions Open for Session 2027–28</h2>
             <p className="text-lg text-blue-200 mb-8 max-w-2xl mx-auto" style={serifStyle}>
               Give your child the gift of quality education. Secure your seat at Nation Building Public School today.
             </p>

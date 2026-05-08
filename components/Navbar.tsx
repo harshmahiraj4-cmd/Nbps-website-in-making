@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="bg-blue-950 text-white py-1.5 px-4 font-medium relative text-xs flex flex-col md:flex-row justify-between items-center gap-2" style={{fontFamily:'Georgia,serif'}}>
         <div className="flex items-center justify-center">
           <span className="material-symbols-outlined filled align-middle mr-1 text-sm text-amber-400">campaign</span>
-          <span className="text-amber-50">Admissions Open 2026–27 &nbsp;|&nbsp; UDISE: 10181403909</span>
+          <span className="text-amber-50">Admissions Open 2027–28 &nbsp;|&nbsp; UDISE: 10181403909</span>
           <Link href="/admissions" className="text-amber-400 underline font-bold ml-2 hover:text-white transition-colors">Apply Now</Link>
         </div>
         
