@@ -71,7 +71,7 @@ export default function AcademicsPage() {
         <div className="max-w-container mx-auto px-8 flex gap-8 py-16">
 
           {/* Sidebar */}
-          <aside className="hidden lg:flex flex-col gap-4 p-6 h-fit w-64 border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 sticky top-[164px]">
+          <aside className="hidden lg:flex flex-col gap-4 p-6 h-fit w-64 border-r border-gray-200 dark:border-[#2a3550] bg-gray-50 dark:bg-[#111827] sticky top-[72px]">
             <div className="mb-4">
               <h4 className="font-bold text-blue-950 dark:text-blue-300 text-lg" style={serifStyle}>Sections</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-semibold">Explore Academics</p>
@@ -103,14 +103,14 @@ export default function AcademicsPage() {
             {/* Class Levels */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {classes.map((cls) => (
-                <div key={cls.title} className="group bg-white border border-gray-200 dark:border-gray-700 p-8 rounded-xl hover:shadow-lg transition-all border-b-4 border-b-transparent hover:border-b-amber-400">
-                  <div className="w-12 h-12 bg-blue-950 rounded-full flex items-center justify-center mb-6 text-amber-400">
+                <div key={cls.title} className="group bg-white dark:bg-[#161d30] border border-gray-200 dark:border-[#2a3550] p-8 rounded-xl hover:shadow-lg dark:hover:shadow-[0_0_0_1px_rgba(251,191,36,0.2),0_8px_24px_rgba(0,0,0,0.4)] transition-all border-b-4 border-b-transparent hover:border-b-amber-400">
+                  <div className="w-12 h-12 bg-blue-950 dark:bg-[#1e2a40] rounded-full flex items-center justify-center mb-6 text-amber-400">
                     <span className="material-symbols-outlined">{cls.icon}</span>
                   </div>
-                  <div className="text-xs font-semibold text-secondary mb-2 uppercase tracking-wide" style={serifStyle}>{cls.grades}</div>
-                  <h3 className="text-2xl font-bold text-blue-950 dark:text-blue-300 mb-4" style={serifStyle}>{cls.title}</h3>
+                  <div className="text-xs font-semibold text-secondary dark:text-amber-400 mb-2 uppercase tracking-wide" style={serifStyle}>{cls.grades}</div>
+                  <h3 className="text-2xl font-bold text-blue-950 dark:text-blue-200 mb-4" style={serifStyle}>{cls.title}</h3>
                   <p className="text-on-surface-variant dark:text-slate-400 text-sm leading-relaxed mb-6" style={serifStyle}>{cls.desc}</p>
-                  <Link href="/admissions" className="inline-flex items-center text-blue-950 dark:text-blue-300 font-bold text-sm gap-1 hover:text-secondary transition-colors" style={serifStyle}>
+                  <Link href="/admissions" className="inline-flex items-center text-blue-950 dark:text-amber-400 font-bold text-sm gap-1 hover:text-secondary dark:hover:text-amber-300 transition-colors" style={serifStyle}>
                     Enrol Now <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   </Link>
                 </div>
@@ -125,12 +125,12 @@ export default function AcademicsPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {classSchedule.map((row) => (
-                  <div key={row.cls} className="flex items-center gap-5 bg-white p-5 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 transition-colors">
-                    <div className="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="material-symbols-outlined text-blue-950">schedule</span>
+                  <div key={row.cls} className="flex items-center gap-5 bg-white dark:bg-[#161d30] p-5 rounded-xl border border-gray-100 dark:border-[#2a3550] hover:border-amber-400 dark:hover:border-amber-500 transition-all">
+                    <div className="w-12 h-12 bg-secondary-container dark:bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-blue-950 dark:text-amber-400">schedule</span>
                     </div>
                     <div className="flex-1">
-                      <div className="font-bold text-blue-950 dark:text-blue-300" style={serifStyle}>{row.cls}</div>
+                      <div className="font-bold text-blue-950 dark:text-blue-200" style={serifStyle}>{row.cls}</div>
                       <div className="text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>{row.time} &nbsp;·&nbsp; {row.days}</div>
                     </div>
                   </div>
@@ -171,12 +171,12 @@ export default function AcademicsPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {subjects.map((subj) => (
-                  <div key={subj.name} className="flex items-start gap-4 p-6 bg-white border border-gray-100 dark:border-gray-700 rounded-xl hover:border-amber-400 hover:shadow-sm transition-all group">
-                    <div className="w-12 h-12 bg-surface-container-low dark:bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container transition-colors">
-                      <span className="material-symbols-outlined text-blue-950 dark:text-blue-300">{subj.icon}</span>
+                  <div key={subj.name} className="flex items-start gap-4 p-6 bg-white dark:bg-[#161d30] border border-gray-100 dark:border-[#2a3550] rounded-xl hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-sm dark:hover:shadow-[0_0_0_1px_rgba(251,191,36,0.2)] transition-all group">
+                    <div className="w-12 h-12 bg-surface-container-low dark:bg-[#1e2a40] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container dark:group-hover:bg-amber-500/20 transition-colors">
+                      <span className="material-symbols-outlined text-blue-950 dark:text-amber-400">{subj.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-blue-950 dark:text-blue-300 mb-1" style={serifStyle}>{subj.name}</h4>
+                      <h4 className="font-bold text-blue-950 dark:text-blue-200 mb-1" style={serifStyle}>{subj.name}</h4>
                       <p className="text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>{subj.desc}</p>
                     </div>
                   </div>
@@ -196,9 +196,9 @@ export default function AcademicsPage() {
                   { value: '10+', label: 'Years Avg. Experience' },
                   { value: '25:1', label: 'Student-Teacher Ratio' },
                 ].map((stat) => (
-                  <div key={stat.label} className="bg-surface-container-low rounded-xl p-8 border border-outline-variant dark:border-gray-700">
-                    <div className="text-5xl font-bold text-blue-950 dark:text-blue-300 mb-2" style={serifStyle}>{stat.value}</div>
-                    <div className="text-sm font-semibold text-secondary uppercase tracking-wide" style={serifStyle}>{stat.label}</div>
+                  <div key={stat.label} className="bg-surface-container-low dark:bg-[#161d30] rounded-xl p-8 border border-outline-variant dark:border-[#2a3550] shadow-sm dark:shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+                    <div className="text-5xl font-bold text-blue-950 dark:text-amber-400 mb-2" style={serifStyle}>{stat.value}</div>
+                    <div className="text-sm font-semibold text-secondary dark:text-slate-400 uppercase tracking-wide" style={serifStyle}>{stat.label}</div>
                   </div>
                 ))}
               </div>
