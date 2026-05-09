@@ -8,20 +8,28 @@ const serifStyle = { fontFamily: 'Georgia, serif' }
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Construct email parameters
-    const subject = encodeURIComponent(`Website Enquiry: ${formData.subject}`)
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}\n\nMessage:\n${formData.message}`
-    )
-    
-    // Open default mail client
-    window.location.href = `mailto:nationbuildingpublicschool@gmail.com?subject=${subject}&body=${body}`
-    
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setSubmitted(true)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to send. Please call us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -202,7 +210,14 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Message *</label>
                   <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Write your message here..." style={serifStyle} />
                 </div>
-                <button type="submit" className="w-full py-4 bg-blue-950 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg" style={serifStyle}>Send Message</button>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3" style={serifStyle}>
+                    ⚠️ {error}
+                  </div>
+                )}
+                <button type="submit" disabled={loading} className="w-full py-4 bg-blue-950 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg disabled:opacity-60" style={serifStyle}>
+                  {loading ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             )}
           </div>

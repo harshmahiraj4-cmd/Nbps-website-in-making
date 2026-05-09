@@ -90,6 +90,16 @@ export default function Navbar() {
           {/* Right: Toggle + CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <DarkModeToggle />
+            <a
+              href="https://www.vidyapranali.com/admin/auth/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2.5 rounded-lg font-semibold text-sm flex items-center gap-1.5 transition-all"
+              style={{fontFamily:'Georgia,serif', background:'linear-gradient(135deg,#002147,#1a3a6e)', color:'#FFD700', boxShadow:'0 0 12px rgba(255,215,0,0.25)', border:'1px solid rgba(255,215,0,0.3)'}}
+            >
+              <span className="material-symbols-outlined text-[16px]">account_circle</span>
+              Student Portal
+            </a>
             <Link
               href="/admissions"
               className="px-5 py-2.5 rounded-lg font-semibold bg-secondary-container text-on-secondary-fixed hover:opacity-90 shadow-md transition-all text-sm"
@@ -135,7 +145,18 @@ export default function Navbar() {
                 </Link>
               )
             })}
-            <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+            <div className="pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3">
+              <a
+                href="https://www.vidyapranali.com/admin/auth/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm"
+                style={{fontFamily:'Georgia,serif', background:'linear-gradient(135deg,#002147,#1a3a6e)', color:'#FFD700', border:'1px solid rgba(255,215,0,0.3)'}}
+              >
+                <span className="material-symbols-outlined text-[16px]">account_circle</span>
+                Student Portal
+              </a>
               <Link href="/admissions" className="block w-full py-3 rounded-lg font-semibold bg-secondary-container text-on-secondary-fixed text-center text-sm" style={{fontFamily:'Georgia,serif'}}>
                 Apply Now
               </Link>
