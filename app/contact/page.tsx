@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="pt-[164px] flex-1">
+      <main className="pt-0 flex-1">
         {/* Hero */}
         <section className="py-24 flex items-center justify-center text-center px-4" style={{ backgroundColor: '#002147', backgroundImage: 'linear-gradient(rgba(0,33,71,0.88), rgba(0,33,71,0.88)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBAzj4B-DurkvUJGEP7OzLJRyeNhxHMLWH5fqFmOixsrggE7PjMQnwbcxunAkP296Vu2ZpcsmZ0JafuKsYjsGBefyR5Edzzf7BNTJsYlisjU_PiOhzn1y7d9Rq3cCdRE692V68To7I8knUdgrl56W7rvzHV9V_qzf-LJWK8F97T0CBwtqjEFbrbDku7_rbdR-sf7-xwNjZwDDJFaa_erPjoz1DUNYXdhUHNrB8_Bx2u0AfyB-GIdYLCCnngEe0I_wS76SnXQQXHiNw)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="max-w-4xl">

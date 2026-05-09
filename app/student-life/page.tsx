@@ -27,7 +27,7 @@ export default function StudentLifePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="pt-[164px] flex-1">
+      <main className="pt-0 flex-1">
         {/* Hero */}
         <header className="relative h-[550px] w-full overflow-hidden flex items-center">
           <Image

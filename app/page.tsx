@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #f8f6f0 0%, #eef2ff 50%, #fef9ec 100%)' }}>
       <Navbar />
-      <main className="pt-[164px] flex-1">
+      <main className="pt-0 flex-1">
 
         {/* Hero Section */}
         <section className="relative h-[700px] flex items-center overflow-hidden">
