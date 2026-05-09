@@ -50,7 +50,7 @@ export default function ContactPage() {
         {/* Map + Contact Cards */}
         <section className="max-w-container mx-auto px-8 -mt-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-stack-lg">
           {/* Map */}
-          <div className="lg:col-span-8 bg-white rounded-xl shadow-lg border border-outline-variant overflow-hidden h-[480px]">
+          <div className="lg:col-span-8 bg-white dark:bg-[#161d30] rounded-xl shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-outline-variant dark:border-[#2a3550] overflow-hidden h-[480px]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.0!2d85.5544!3d25.8762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5a2b3e000001%3A0x1!2sNation+Building+Public+School%2C+Daud+Nagar%2C+Bidupur%2C+Vaishali%2C+Bihar+844503!5e0!3m2!1sen!2sin!4v1683000000000!5m2!1sen!2sin"
               width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
@@ -87,9 +87,9 @@ export default function ContactPage() {
             </div>
 
             {/* Hours */}
-            <div className="bg-white p-6 rounded-xl border border-outline-variant dark:border-gray-700 shadow-sm">
-              <h3 className="text-xl font-bold text-primary mb-4" style={serifStyle}>School Timings</h3>
-              <div className="space-y-3 text-sm text-on-surface-variant">
+            <div className="bg-white dark:bg-[#161d30] p-6 rounded-xl border border-outline-variant dark:border-[#2a3550] shadow-sm">
+              <h3 className="text-xl font-bold text-primary dark:text-blue-200 mb-4" style={serifStyle}>School Timings</h3>
+              <div className="space-y-3 text-sm text-on-surface-variant dark:text-slate-400">
                 {[
                   { day: 'Monday – Friday', time: '8:00 AM – 2:30 PM' },
                   { day: 'Saturday', time: '8:00 AM – 1:00 PM' },
@@ -97,11 +97,11 @@ export default function ContactPage() {
                 ].map((row) => (
                   <div key={row.day} className="flex justify-between" style={serifStyle}>
                     <span>{row.day}</span>
-                    <span className={`font-semibold ${row.closed ? 'text-error' : 'text-primary'}`}>{row.time}</span>
+                    <span className={`font-semibold ${row.closed ? 'text-error dark:text-red-400' : 'text-primary dark:text-blue-300'}`}>{row.time}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 text-xs text-on-surface-variant" style={serifStyle}>
+              <div className="mt-4 pt-4 border-t border-gray-100 dark:border-[#2a3550] text-xs text-on-surface-variant dark:text-slate-500" style={serifStyle}>
                 Office hours: Mon–Sat, 9:00 AM – 3:00 PM
               </div>
             </div>
@@ -118,23 +118,23 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 { icon: 'school', name: 'Admissions Office', info: 'For new admissions, seat availability, and fee enquiries.', phone: '6207 834 778', email: 'nationbuildingpublicschool@gmail.com' },
-                { icon: 'account_balance', name: 'Principal\'s Office', info: 'For academic matters, discipline, and school policies.', phone: '9708 573 000', email: 'nationbuildingpublicschool@gmail.com' },
+                { icon: 'account_balance', name: "Principal's Office", info: 'For academic matters, discipline, and school policies.', phone: '9708 573 000', email: 'nationbuildingpublicschool@gmail.com' },
                 { icon: 'payments', name: 'Fee & Accounts', info: 'For fee receipts, concession requests, and payment queries.', phone: '6204 255 099', email: 'nationbuildingpublicschool@gmail.com' },
                 { icon: 'sports', name: 'Academic & Co-curricular', info: 'For syllabus queries, events, sports, and activities.', phone: '9708 573 000', email: 'nationbuildingpublicschool@gmail.com' },
               ].map((dept) => (
-                <div key={dept.name} className="bg-white p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition-all">
+                <div key={dept.name} className="bg-white dark:bg-[#161d30] p-6 rounded-xl border border-gray-100 dark:border-[#2a3550] hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-md dark:hover:shadow-[0_0_0_1px_rgba(251,191,36,0.2)] transition-all">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-950 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-950 dark:bg-[#1e2a40] rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="material-symbols-outlined text-amber-400">{dept.icon}</span>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-blue-950 mb-1" style={serifStyle}>{dept.name}</h4>
-                      <p className="text-sm text-on-surface-variant mb-3" style={serifStyle}>{dept.info}</p>
+                      <h4 className="font-bold text-blue-950 dark:text-blue-200 mb-1" style={serifStyle}>{dept.name}</h4>
+                      <p className="text-sm text-on-surface-variant dark:text-slate-400 mb-3" style={serifStyle}>{dept.info}</p>
                       <div className="space-y-1 text-sm">
-                        <a href={`tel:${dept.phone}`} className="flex items-center gap-2 text-on-surface-variant hover:text-blue-950 transition-colors" style={serifStyle}>
+                        <a href={`tel:${dept.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-on-surface-variant dark:text-slate-400 hover:text-blue-950 dark:hover:text-amber-400 transition-colors" style={serifStyle}>
                           <span className="material-symbols-outlined text-sm">call</span>{dept.phone}
                         </a>
-                        <a href={`mailto:${dept.email}`} className="flex items-center gap-2 text-on-surface-variant hover:text-blue-950 transition-colors" style={serifStyle}>
+                        <a href={`mailto:${dept.email}`} className="flex items-center gap-2 text-on-surface-variant dark:text-slate-400 hover:text-blue-950 dark:hover:text-amber-400 transition-colors" style={serifStyle}>
                           <span className="material-symbols-outlined text-sm">mail</span>{dept.email}
                         </a>
                       </div>
@@ -180,24 +180,24 @@ export default function ContactPage() {
                 <p className="text-green-700" style={serifStyle}>Thank you for reaching out. We will respond within 1 working day. You can also call us at <strong>6207 834 778</strong>.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm space-y-5">
+              <form onSubmit={handleSubmit} className="bg-white dark:bg-[#161d30] rounded-xl border border-gray-200 dark:border-[#2a3550] p-8 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Full Name *</label>
-                    <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Your name" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Full Name *</label>
+                    <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Your name" style={serifStyle} />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Mobile Number *</label>
-                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="10-digit number" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Mobile Number *</label>
+                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="10-digit number" style={serifStyle} />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Email (optional)</label>
-                  <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="your@email.com" style={serifStyle} />
+                  <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Email (optional)</label>
+                  <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="your@email.com" style={serifStyle} />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Subject *</label>
-                  <select required value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm bg-white" style={serifStyle}>
+                  <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Subject *</label>
+                  <select required value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" style={serifStyle}>
                     <option value="">Select a topic...</option>
                     <option>Admission Enquiry</option>
                     <option>Fee Enquiry</option>
@@ -207,15 +207,15 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Message *</label>
-                  <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Write your message here..." style={serifStyle} />
+                  <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Message *</label>
+                  <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Write your message here..." style={serifStyle} />
                 </div>
                 {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3" style={serifStyle}>
+                  <div className="bg-red-50 dark:bg-[#1c0a0a] border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 text-sm rounded-lg px-4 py-3" style={serifStyle}>
                     ⚠️ {error}
                   </div>
                 )}
-                <button type="submit" disabled={loading} className="w-full py-4 bg-blue-950 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg disabled:opacity-60" style={serifStyle}>
+                <button type="submit" disabled={loading} className="w-full py-4 bg-blue-950 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg disabled:opacity-60" style={serifStyle}>
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
