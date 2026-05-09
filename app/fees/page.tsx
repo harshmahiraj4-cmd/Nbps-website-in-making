@@ -1,317 +1,241 @@
 'use client'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const serifStyle = { fontFamily: 'Georgia, serif' }
 
-const feeData = [
-  {
-    level: 'Play Group',
-    grades: 'Play · Nursery',
-    icon: 'child_care',
-    color: 'from-pink-500 to-rose-400',
-    admission: '₹1,500',
-    tuition: '₹700/mo',
-    annual: '₹8,400',
-    sports: '₹500',
-    exam: '₹300',
-    total: '₹10,700',
-    highlight: false,
-  },
-  {
-    level: 'KG Section',
-    grades: 'LKG · UKG',
-    icon: 'school',
-    color: 'from-violet-500 to-purple-400',
-    admission: '₹2,000',
-    tuition: '₹750/mo',
-    annual: '₹9,000',
-    sports: '₹500',
-    exam: '₹400',
-    total: '₹11,900',
-    highlight: false,
-  },
-  {
-    level: 'Primary',
-    grades: 'Class I – V',
-    icon: 'menu_book',
-    color: 'from-blue-600 to-blue-400',
-    admission: '₹2,500',
-    tuition: '₹900/mo',
-    annual: '₹10,800',
-    sports: '₹600',
-    exam: '₹500',
-    total: '₹14,400',
-    highlight: true,
-  },
-  {
-    level: 'Middle School',
-    grades: 'Class VI – VIII',
-    icon: 'science',
-    color: 'from-amber-500 to-yellow-400',
-    admission: '₹3,000',
-    tuition: '₹1,100/mo',
-    annual: '₹13,200',
-    sports: '₹700',
-    exam: '₹600',
-    total: '₹17,500',
-    highlight: false,
-  },
+const bookCharges = [
+  { class: 'Nursery', fee: '₹1,480' },
+  { class: 'LKG', fee: '₹1,520' },
+  { class: 'UKG', fee: '₹1,880' },
+  { class: 'Class 1', fee: '₹2,240' },
+  { class: 'Class 2', fee: '₹2,670' },
+  { class: 'Class 3', fee: '₹2,970' },
+  { class: 'Class 4', fee: '₹3,230' },
+  { class: 'Class 5', fee: '₹3,580' },
+  { class: 'Class 6', fee: '₹3,680' },
+  { class: 'Class 7', fee: '₹3,790' },
+  { class: 'Class 8', fee: '₹4,080' },
 ]
 
-const faqs = [
-  { q: 'When is the fee due each month?', a: 'Monthly tuition fee is due by the 10th of every month. A late fine of ₹50 is charged after the 15th.' },
-  { q: 'Is there a sibling discount?', a: 'Yes. A 10% concession on tuition fee is given for the second child from the same family.' },
-  { q: 'What payment modes are accepted?', a: 'Cash, UPI (Google Pay / PhonePe), and Bank Transfer are all accepted. Receipts are issued for every payment.' },
-  { q: 'Are there fee concessions for meritorious students?', a: 'Yes. Students with outstanding academic or sports performance may be eligible for partial fee waivers. Contact the school office for details.' },
-  { q: 'Is the admission fee refundable?', a: 'Admission fee is a one-time non-refundable charge paid at the time of joining.' },
-  { q: 'Does the annual fee include books and uniform?', a: 'No. Books, uniform, and stationery are purchased separately from the school store or approved vendors.' },
+const transportRoutes = [
+  { routes: 'Daud Nagar, Khilwat, Andhanwara', fee: '₹500' },
+  { routes: 'Bidupur, Bidupur Dih', fee: '₹550' },
+  { routes: 'Rahimapur, Majhauli Pur', fee: '₹600' },
+  { routes: 'Mail, Bhairopur, Unchidi', fee: '₹550' },
 ]
+
+const containerVariants: any = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const itemVariants: any = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+}
 
 export default function FeesPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#f8f9ff] dark:bg-[#0c1120]">
       <Navbar />
-      <main className="pt-0 flex-1">
-
-        {/* Hero */}
-        <section className="relative py-28 px-8 text-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #002147 0%, #003580 60%, #001a38 100%)' }}>
-          {/* decorative rings */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full border border-white/5" />
-            <div className="absolute -bottom-10 -right-10 w-80 h-80 rounded-full border border-white/5" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/[0.03]" />
-          </div>
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-400/20 text-amber-300 font-semibold text-sm mb-6 uppercase tracking-widest border border-amber-400/30" style={serifStyle}>
-              Session 2026–27
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-5" style={serifStyle}>Fee Structure</h1>
-            <p className="text-xl text-blue-200 max-w-xl mx-auto mb-8" style={serifStyle}>
-              Transparent, affordable, and value-for-money education at NBPS. No hidden charges.
+      
+      <main className="flex-1 pt-24 md:pt-32 pb-20">
+        <div className="max-w-container mx-auto px-6 md:px-8">
+          
+          {/* Header Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16 md:mb-24"
+          >
+            <span className="text-amber-600 dark:text-amber-400 font-semibold text-sm uppercase tracking-[0.2em] mb-4 block" style={serifStyle}>Academic Session 2026-27</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-blue-950 dark:text-blue-100 mb-6" style={serifStyle}>Fee Structure</h1>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto rounded-full mb-8"></div>
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed" style={serifStyle}>
+              Providing world-class education with transparent and affordable pricing. Join the NBPS family today.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#fees" className="px-8 py-3.5 bg-amber-400 text-blue-950 rounded-xl font-bold hover:bg-amber-300 transition-all shadow-lg shadow-amber-400/25" style={serifStyle}>
-                View Full Fees
-              </a>
-              <a href="tel:6207834778" className="px-8 py-3.5 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-all flex items-center gap-2" style={serifStyle}>
-                <span className="material-symbols-outlined text-sm">call</span>Ask the Office
-              </a>
-            </div>
-          </div>
-        </section>
+          </motion.div>
 
-        {/* Quick Stats */}
-        <section className="bg-white dark:bg-[#161d30] border-b border-gray-100 dark:border-[#2a3550]">
-          <div className="max-w-container mx-auto px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { icon: 'payments', value: '₹700', label: 'Starting Monthly Fee', color: 'text-blue-600 dark:text-amber-400' },
-              { icon: 'calendar_month', value: '10th', label: 'Fee Due Date', color: 'text-blue-600 dark:text-amber-400' },
-              { icon: 'discount', value: '10%', label: 'Sibling Discount', color: 'text-blue-600 dark:text-amber-400' },
-              { icon: 'verified', value: 'No', label: 'Hidden Charges', color: 'text-green-600 dark:text-green-400' },
-            ].map((s) => (
-              <div key={s.label} className="py-4">
-                <span className={`material-symbols-outlined text-3xl ${s.color} mb-2 block`}>{s.icon}</span>
-                <div className={`text-3xl font-bold ${s.color} mb-1`} style={serifStyle}>{s.value}</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-semibold" style={serifStyle}>{s.label}</div>
+          {/* Admission Section */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-24"
+          >
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                <span className="material-symbols-outlined text-amber-600 dark:text-amber-400">how_to_reg</span>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Fee Cards */}
-        <section id="fees" className="py-16 px-8 bg-gray-50 dark:bg-[#0c1120]">
-          <div className="max-w-container mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-amber-600 dark:text-amber-400 font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Annual Fee Breakdown</span>
-              <h2 className="text-4xl font-bold text-blue-950 dark:text-blue-200 mb-3" style={serifStyle}>Fee by Class Level</h2>
-              <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto" style={serifStyle}>All charges for session 2026–27. Amounts are inclusive of all standard school activities.</p>
+              <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-100" style={serifStyle}>Admission & Starter Kit</h2>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-              {feeData.map((f) => (
-                <div
-                  key={f.level}
-                  className={`relative rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                    f.highlight
-                      ? 'border-amber-400 dark:border-amber-500 shadow-xl shadow-amber-400/10'
-                      : 'border-gray-200 dark:border-[#2a3550] shadow-md dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
-                  } bg-white dark:bg-[#161d30]`}
-                >
-                  {f.highlight && (
-                    <div className="absolute top-0 left-0 right-0 text-center py-1.5 bg-amber-400 text-blue-950 text-xs font-bold uppercase tracking-widest">
-                      Most Popular
-                    </div>
-                  )}
-
-                  {/* Card Header */}
-                  <div className={`bg-gradient-to-br ${f.color} p-6 ${f.highlight ? 'mt-7' : ''}`}>
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <span className="material-symbols-outlined text-white text-2xl">{f.icon}</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-0.5" style={serifStyle}>{f.level}</h3>
-                    <p className="text-white/80 text-sm" style={serifStyle}>{f.grades}</p>
-                  </div>
-
-                  {/* Fee Rows */}
-                  <div className="p-6 space-y-3">
-                    {[
-                      { label: 'Admission Fee (one-time)', value: f.admission },
-                      { label: 'Monthly Tuition', value: f.tuition },
-                      { label: 'Annual Charges', value: f.annual },
-                      { label: 'Sports & Activities', value: f.sports },
-                      { label: 'Exam Fee', value: f.exam },
-                    ].map((row) => (
-                      <div key={row.label} className="flex justify-between items-center text-sm">
-                        <span className="text-slate-600 dark:text-slate-400" style={serifStyle}>{row.label}</span>
-                        <span className="font-semibold text-blue-950 dark:text-blue-200" style={serifStyle}>{row.value}</span>
-                      </div>
-                    ))}
-                    <div className="pt-3 mt-3 border-t-2 border-dashed border-gray-200 dark:border-[#2a3550] flex justify-between items-center">
-                      <span className="font-bold text-blue-950 dark:text-blue-200 text-sm uppercase tracking-wide" style={serifStyle}>Est. First Year Total</span>
-                      <span className="text-xl font-black text-amber-600 dark:text-amber-400" style={serifStyle}>{f.total}</span>
-                    </div>
-                  </div>
-
-                  <div className="px-6 pb-6">
-                    <Link
-                      href="/admissions#apply"
-                      className="block w-full text-center py-3 rounded-xl font-bold text-sm transition-all bg-blue-950 dark:bg-amber-400 text-white dark:text-blue-950 hover:opacity-90"
-                      style={serifStyle}
-                    >
-                      Apply for {f.level}
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed Comparison Table */}
-        <section className="py-16 px-8 bg-white dark:bg-[#111827]">
-          <div className="max-w-container mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-200 mb-2" style={serifStyle}>Detailed Fee Comparison</h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm" style={serifStyle}>All amounts in Indian Rupees (₹). Session 2026–27.</p>
-            </div>
-            <div className="overflow-x-auto rounded-2xl border border-gray-200 dark:border-[#2a3550] shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-              <table className="w-full text-sm min-w-[700px]">
-                <thead>
-                  <tr className="bg-blue-950 dark:bg-[#0c1120] text-white">
-                    <th className="text-left px-6 py-4 font-bold" style={serifStyle}>Fee Component</th>
-                    <th className="text-center px-4 py-4 font-bold" style={serifStyle}>Play/Nursery</th>
-                    <th className="text-center px-4 py-4 font-bold" style={serifStyle}>LKG/UKG</th>
-                    <th className="text-center px-4 py-4 font-bold bg-amber-500/20" style={serifStyle}>Class I–V</th>
-                    <th className="text-center px-4 py-4 font-bold" style={serifStyle}>Class VI–VIII</th>
-                  </tr>
-                </thead>
-                <tbody>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <motion.div variants={itemVariants} className="lg:col-span-2 glass-card bg-white/60 dark:bg-white/5 border border-white/20 dark:border-white/10 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-blue-900/5 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-amber-400/10 transition-colors duration-500"></div>
+                
+                <h3 className="text-xl font-bold text-blue-950 dark:text-amber-400 mb-8 flex items-center gap-2" style={serifStyle}>
+                  Package Includes:
+                </h3>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
                   {[
-                    { label: 'Admission Fee', values: ['₹1,500', '₹2,000', '₹2,500', '₹3,000'], note: 'One-time, non-refundable' },
-                    { label: 'Monthly Tuition', values: ['₹700', '₹750', '₹900', '₹1,100'], note: 'Due by 10th each month' },
-                    { label: 'Annual Charges', values: ['₹8,400', '₹9,000', '₹10,800', '₹13,200'], note: 'Includes tuition × 12' },
-                    { label: 'Sports & PT Fee', values: ['₹500', '₹500', '₹600', '₹700'], note: 'Annual, one-time' },
-                    { label: 'Exam / Assessment Fee', values: ['₹300', '₹400', '₹500', '₹600'], note: 'Annual' },
-                    { label: 'Estimated 1st Year Total', values: ['₹10,700', '₹11,900', '₹14,400', '₹17,500'], note: 'All charges combined', bold: true },
-                  ].map((row, i) => (
-                    <tr key={row.label} className={`border-t border-gray-100 dark:border-[#2a3550] ${i % 2 === 0 ? 'bg-gray-50 dark:bg-[#161d30]' : 'bg-white dark:bg-[#111827]'}`}>
-                      <td className="px-6 py-4">
-                        <div className={`${row.bold ? 'font-black text-blue-950 dark:text-amber-400' : 'font-semibold text-blue-950 dark:text-blue-200'}`} style={serifStyle}>{row.label}</div>
-                        <div className="text-xs text-slate-400 dark:text-slate-500 mt-0.5" style={serifStyle}>{row.note}</div>
-                      </td>
-                      {row.values.map((v, vi) => (
-                        <td key={vi} className={`text-center px-4 py-4 ${row.bold ? 'font-black text-amber-600 dark:text-amber-400 text-base' : 'font-medium text-slate-700 dark:text-slate-300'} ${vi === 2 ? 'bg-amber-50 dark:bg-amber-500/5' : ''}`} style={serifStyle}>
-                          {v}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-4 text-center" style={serifStyle}>
-              * Books, uniform, and stationery are purchased separately. Fees subject to revision by school management.
-            </p>
-          </div>
-        </section>
-
-        {/* Payment Info Banner */}
-        <section className="py-12 px-8 bg-gradient-to-r from-blue-950 to-blue-900">
-          <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { icon: 'account_balance_wallet', title: 'Payment Modes', desc: 'Cash · UPI · Bank Transfer\nReceipts issued for all payments' },
-              { icon: 'event_repeat', title: 'Monthly Due Date', desc: 'Fee due by the 10th of each month\n₹50 late fine after the 15th' },
-              { icon: 'diversity_1', title: 'Concessions', desc: 'Sibling discount: 10%\nMerit & EWS concessions available' },
-            ].map((item) => (
-              <div key={item.title} className="text-center">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="material-symbols-outlined text-amber-400 text-3xl">{item.icon}</span>
-                </div>
-                <h3 className="text-white font-bold text-lg mb-2" style={serifStyle}>{item.title}</h3>
-                <p className="text-blue-200 text-sm whitespace-pre-line" style={serifStyle}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-16 px-8 bg-gray-50 dark:bg-[#0c1120]">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="text-amber-600 dark:text-amber-400 font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Common Questions</span>
-              <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-200" style={serifStyle}>Fee FAQs</h2>
-            </div>
-            <div className="space-y-3">
-              {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="bg-white dark:bg-[#161d30] rounded-xl border border-gray-200 dark:border-[#2a3550] overflow-hidden"
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#1e2a40] transition-colors"
-                  >
-                    <span className="font-semibold text-blue-950 dark:text-blue-200 pr-4" style={serifStyle}>{faq.q}</span>
-                    <span className={`material-symbols-outlined text-amber-500 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}>
-                      expand_more
-                    </span>
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-gray-100 dark:border-[#2a3550] pt-4" style={serifStyle}>
-                      {faq.a}
+                    { icon: 'app_registration', text: 'Registration Fee' },
+                    { icon: 'login', text: 'Admission Fee' },
+                    { icon: 'checkroom', text: 'School Uniform Fee' },
+                    { icon: 'badge', text: 'I-Card, Tie & Belt' },
+                    { icon: 'school', text: 'Premium School Bag' }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-4 group/item">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover/item:bg-amber-400 group-hover/item:text-blue-950 transition-all duration-300">
+                        <span className="material-symbols-outlined text-xl">{item.icon}</span>
+                      </div>
+                      <span className="text-slate-700 dark:text-slate-300 font-medium" style={serifStyle}>{item.text}</span>
                     </div>
-                  )}
+                  ))}
+                </div>
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="bg-gradient-to-br from-blue-950 to-blue-900 dark:from-[#161d30] dark:to-[#0f172a] p-10 rounded-[2.5rem] shadow-2xl flex flex-col justify-center text-center relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                  <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
+                  <div className="absolute bottom-20 right-10 w-32 h-32 border border-white rounded-full"></div>
+                </div>
+                
+                <span className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-4 block">Total Investment</span>
+                <div className="mb-6">
+                  <span className="text-white text-5xl md:text-6xl font-bold" style={serifStyle}>₹4,050</span>
+                  <span className="text-amber-400 text-2xl font-bold mx-2">to</span>
+                  <span className="text-white text-5xl md:text-6xl font-bold" style={serifStyle}>₹5,400</span>
+                </div>
+                <p className="text-blue-200 text-sm leading-relaxed" style={serifStyle}>
+                  One-time charges depending on the class (Nursery to Class 8). Includes full starter kit.
+                </p>
+              </motion.div>
+            </div>
+          </motion.section>
+
+          {/* Books Section */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-24"
+          >
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                <span className="material-symbols-outlined text-blue-600 dark:text-blue-400">auto_stories</span>
+              </div>
+              <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-100" style={serifStyle}>Book Charges</h2>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
+              {bookCharges.map((item, idx) => (
+                <motion.div 
+                  key={idx} 
+                  variants={itemVariants}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="bg-white dark:bg-[#161d30] border border-slate-100 dark:border-white/5 p-6 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 text-center group"
+                >
+                  <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 block">{item.class}</span>
+                  <div className="text-2xl font-black text-blue-950 dark:text-blue-100 group-hover:text-amber-500 transition-colors" style={serifStyle}>{item.fee}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Transport Section */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-24"
+          >
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 rounded-2xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                <span className="material-symbols-outlined text-green-600 dark:text-green-400">directions_bus</span>
+              </div>
+              <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-100" style={serifStyle}>Transport Services</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {transportRoutes.map((route, idx) => (
+                <motion.div 
+                  key={idx} 
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.01 }}
+                  className="bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 p-8 rounded-[2rem] flex items-center justify-between shadow-lg group"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 group-hover:bg-amber-400 group-hover:text-blue-950 transition-all duration-500">
+                      <span className="material-symbols-outlined">route</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-blue-950 dark:text-blue-100 leading-tight mb-1" style={serifStyle}>{route.routes}</h3>
+                      <span className="text-sm text-slate-500 dark:text-slate-400">Route-wise monthly fee</span>
+                    </div>
+                  </div>
+                  <div className="text-3xl font-black text-amber-600 dark:text-amber-400" style={serifStyle}>{route.fee}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Important Notes */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+            
+            <div className="flex items-center gap-3 mb-8">
+              <span className="material-symbols-outlined text-amber-600 dark:text-amber-400">info</span>
+              <h3 className="text-xl font-bold text-blue-950 dark:text-blue-100" style={serifStyle}>Important Notes</h3>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+              {[
+                'Fees may vary slightly depending on specific class requirements.',
+                'Book prices displayed already include seasonal discounts.',
+                'Transport fee is route-based and charged monthly.',
+                'Full uniform and essential accessories are included in the admission package.'
+              ].map((note, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed" style={serifStyle}>{note}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
+          </motion.section>
 
-        {/* CTA */}
-        <section className="py-16 px-8 text-center bg-white dark:bg-[#111827] border-t border-gray-100 dark:border-[#2a3550]">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-blue-950 dark:text-blue-200 mb-4" style={serifStyle}>Ready to Enrol?</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8" style={serifStyle}>
-              Seats are limited for session 2026–27. Apply now or visit us at Daud Nagar Chakgadho, Bidupur, Vaishali.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/admissions#apply" className="px-8 py-4 bg-blue-950 dark:bg-amber-400 text-white dark:text-blue-950 rounded-xl font-bold hover:opacity-90 transition-all shadow-lg" style={serifStyle}>
-                Apply for Admission
-              </Link>
-              <Link href="/contact" className="px-8 py-4 border-2 border-blue-950 dark:border-amber-400 text-blue-950 dark:text-amber-400 rounded-xl font-bold hover:bg-blue-950 hover:text-white dark:hover:bg-amber-400 dark:hover:text-blue-950 transition-all" style={serifStyle}>
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </section>
-
+        </div>
       </main>
+
       <Footer />
+      
+      <style jsx global>{`
+        .glass-card {
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+      `}</style>
     </div>
   )
 }
