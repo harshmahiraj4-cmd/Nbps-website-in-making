@@ -110,13 +110,13 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16 md:h-20 px-4 md:px-6 max-w-[1400px] mx-auto">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" onClick={() => setMobileOpen(false)}>
-              <div className="transition-transform duration-300 group-hover:scale-105">
+            <Link href="/" className="flex items-center gap-3 group min-w-0 flex-shrink-0 max-w-[280px] lg:max-w-xs" onClick={() => setMobileOpen(false)}>
+              <div className="transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
                 <AnalogClock />
               </div>
-              <div className="flex flex-col leading-tight">
+              <div className="flex flex-col leading-tight min-w-0">
                 <span
-                  className="text-sm font-black text-blue-950 dark:text-blue-200 uppercase tracking-tight hidden sm:block"
+                  className="text-sm font-black text-blue-950 dark:text-blue-200 uppercase tracking-tight hidden sm:block truncate"
                   style={{ fontFamily: 'Georgia, serif' }}
                 >
                   Nation Building Public School
@@ -128,10 +128,10 @@ export default function Navbar() {
                   NBPS
                 </span>
                 <span
-                  className="text-[10px] text-amber-600 font-semibold tracking-widest uppercase hidden sm:block"
+                  className="text-[9px] text-amber-600 font-semibold tracking-wider uppercase hidden sm:block truncate"
                   style={{ fontFamily: 'Georgia, serif' }}
                 >
-                  We Will Shine Together · CBSE · Play to Class VIII
+                  We Will Shine Together · CBSE · Play–VIII
                 </span>
               </div>
             </Link>
