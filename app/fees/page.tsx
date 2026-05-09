@@ -109,20 +109,20 @@ export default function FeesPage() {
                 </div>
               </motion.div>
               
-              <motion.div variants={itemVariants} className="bg-gradient-to-br from-blue-950 to-blue-900 dark:from-[#161d30] dark:to-[#0f172a] p-10 rounded-[2.5rem] shadow-2xl flex flex-col justify-center text-center relative overflow-hidden">
+              <motion.div variants={itemVariants} className="bg-gradient-to-br from-blue-950 to-blue-900 dark:from-[#161d30] dark:to-[#0f172a] p-8 md:p-10 rounded-[2.5rem] shadow-2xl flex flex-col justify-center text-center relative overflow-hidden min-h-[250px]">
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                   <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
                   <div className="absolute bottom-20 right-10 w-32 h-32 border border-white rounded-full"></div>
                 </div>
                 
-                <span className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-4 block">Total Investment</span>
-                <div className="mb-6">
-                  <span className="text-white text-5xl md:text-6xl font-bold" style={serifStyle}>₹4,050</span>
-                  <span className="text-amber-400 text-2xl font-bold mx-2">to</span>
-                  <span className="text-white text-5xl md:text-6xl font-bold" style={serifStyle}>₹5,400</span>
+                <span className="text-amber-400 text-xs md:text-sm font-bold uppercase tracking-widest mb-4 block">Total Admission Package</span>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-6">
+                  <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold" style={serifStyle}>₹4,050</span>
+                  <span className="text-amber-400 text-xl font-bold">to</span>
+                  <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold" style={serifStyle}>₹5,400</span>
                 </div>
-                <p className="text-blue-200 text-sm leading-relaxed" style={serifStyle}>
-                  One-time charges depending on the class (Nursery to Class 8). Includes full starter kit.
+                <p className="text-blue-100 text-xs md:text-sm leading-relaxed" style={serifStyle}>
+                  One-time charges depending on the class (Nursery to Class 8).
                 </p>
               </motion.div>
             </div>
