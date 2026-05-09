@@ -25,14 +25,14 @@
    DARK MODE TOKENS
 ══════════════════════════════════ */
 html.dark {
-  --bg:           #0f1117;
-  --bg-card:      #1a1f2e;
-  --bg-subtle:    #151a27;
-  --bg-muted:     #1e2436;
-  --border:       #2e3650;
+  --bg:           #0c1120;
+  --bg-card:      #161d30;
+  --bg-subtle:    #111827;
+  --bg-muted:     #1e2a40;
+  --border:       #2a3550;
   --text:         #e8edf5;
-  --text-muted:   #8b95a8;
-  --text-heading: #aec7f6;
+  --text-muted:   #94a3b8;
+  --text-heading: #bfdbfe;
   --accent:       #FCD400;
   --accent-text:  #221b00;
 }
@@ -57,22 +57,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ══════════════════════════════════
-   DARK MODE — ELEMENT OVERRIDES
-   Uses CSS variables so they work
-   regardless of Tailwind class names
+   DARK MODE — COMPREHENSIVE OVERRIDES
 ══════════════════════════════════ */
 
-/* Page backgrounds */
+/* ── Page / layout backgrounds ── */
 html.dark body,
 html.dark main {
   background-color: var(--bg);
 }
 
-/* All white/light sections become dark */
+/* ── White / light surface backgrounds → dark cards ── */
 html.dark .bg-white,
 html.dark [class*="bg-surface"],
 html.dark .bg-gray-50,
-html.dark [class*="bg-slate-50"] {
+html.dark .bg-gray-100,
+html.dark [class*="bg-slate-50"],
+html.dark [class*="bg-yellow-50"],
+html.dark [class*="bg-blue-50"],
+html.dark [class*="bg-green-50"]:not(.text-green-800):not(.border-green-200) {
   background-color: var(--bg-card) !important;
 }
 
@@ -81,34 +83,101 @@ html.dark section.bg-white {
   background-color: var(--bg-subtle) !important;
 }
 
-/* Cards */
+/* ── Cards ── */
 html.dark .rounded-xl.bg-white,
-html.dark .rounded-xl[class*="bg-surface"] {
+html.dark .rounded-xl[class*="bg-surface"],
+html.dark .rounded-lg.bg-white {
   background-color: var(--bg-card) !important;
   border-color: var(--border) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35) !important;
 }
 
-/* Borders */
+/* ── Borders ── */
 html.dark [class*="border-gray"],
 html.dark [class*="border-outline"],
-html.dark [class*="border-slate"] {
+html.dark [class*="border-slate"],
+html.dark [class*="border-blue-100"],
+html.dark [class*="border-amber-100"] {
   border-color: var(--border) !important;
 }
 
-/* Text */
-html.dark .text-blue-950 { color: var(--text-heading) !important; }
+/* ── ALL HEADINGS — ensure bright readable text in dark mode ── */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: var(--text-heading) !important;
+}
+
+/* ── Primary text color fixes ── */
+html.dark .text-blue-950,
+html.dark .text-primary,
+html.dark .text-on-surface {
+  color: #bfdbfe !important;
+}
+
+/* ── Muted / secondary text ── */
 html.dark .text-on-surface-variant,
 html.dark .text-slate-600,
 html.dark .text-slate-500,
-html.dark .text-gray-600 { color: var(--text-muted) !important; }
-
-/* Navbar */
-html.dark nav { 
-  background-color: #12182a !important;
-  border-color: var(--border) !important;
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #94a3b8 !important;
 }
 
-/* Input & form elements */
+/* ── Small uppercase labels ── */
+html.dark .text-secondary {
+  color: #fbbf24 !important;
+}
+
+/* ── Inline body text ── */
+html.dark p,
+html.dark span:not(.material-symbols-outlined):not([class*="text-amber"]):not([class*="text-white"]):not([class*="text-green"]):not([class*="text-red"]) {
+  color: var(--text);
+}
+
+/* ── Admission steps cards ── */
+html.dark .rounded-xl.bg-white p,
+html.dark .rounded-xl.bg-white span:not(.material-symbols-outlined) {
+  color: var(--text-muted) !important;
+}
+html.dark .rounded-xl.bg-white h3,
+html.dark .rounded-xl.bg-white h4 {
+  color: var(--text-heading) !important;
+}
+
+/* ── Step number watermark ── */
+html.dark [class*="text-surface-container-high"] {
+  color: rgba(255,255,255,0.06) !important;
+}
+
+/* ── Icon backgrounds in cards ── */
+html.dark .bg-surface-container-low {
+  background-color: var(--bg-muted) !important;
+}
+html.dark .bg-surface-container-high {
+  background-color: var(--bg-subtle) !important;
+}
+
+/* ── Document checklist + fee cards text ── */
+html.dark .text-on-surface {
+  color: var(--text) !important;
+}
+
+/* ── Fee structure: bold values ── */
+html.dark .font-bold.text-blue-950 {
+  color: #bfdbfe !important;
+}
+
+/* ── Form labels ── */
+html.dark label,
+html.dark .text-blue-950.font-semibold {
+  color: #bfdbfe !important;
+}
+
+/* ── Input & form elements ── */
 html.dark input,
 html.dark textarea,
 html.dark select {
@@ -121,39 +190,91 @@ html.dark textarea::placeholder {
   color: var(--text-muted) !important;
 }
 
-/* Sidebar */
+/* ── Navbar ── */
+html.dark nav {
+  border-color: var(--border) !important;
+}
+
+/* ── Sidebar ── */
 html.dark aside {
   background-color: var(--bg-subtle) !important;
   border-color: var(--border) !important;
 }
-
-/* Hover states */
-html.dark a:hover,
-html.dark button:hover {
-  color: inherit;
+html.dark aside h4 {
+  color: #bfdbfe !important;
 }
 
-/* Surface container shades */
-html.dark .bg-surface-container-low { background-color: var(--bg-subtle) !important; }
-html.dark .bg-surface-container-high { background-color: var(--bg-muted) !important; }
+/* ── Class timings / schedule rows ── */
+html.dark .flex.items-center.bg-white,
+html.dark .flex.items-start.bg-white {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
 
-/* Stats bar (white panel on student life) */
-html.dark .shadow-xl.bg-white { background-color: var(--bg-card) !important; }
+/* ── Faculty stat cards ── */
+html.dark .bg-surface-container-low.rounded-xl {
+  background-color: var(--bg-card) !important;
+}
+html.dark .bg-surface-container-low.rounded-xl .text-blue-950 {
+  color: #bfdbfe !important;
+}
 
-/* Gallery filter bar */
-html.dark .sticky.bg-white { background-color: #12182a !important; }
+/* ── Academics CTA section ── */
+html.dark .bg-surface-container-low.dark\:bg-gray-900 {
+  background-color: var(--bg-subtle) !important;
+}
 
-/* Lightbox */
-html.dark .fixed.bg-white { background-color: var(--bg-card) !important; }
+/* ── Hover states: premium glow on cards ── */
+html.dark .rounded-xl:hover {
+  box-shadow: 0 0 0 1px rgba(250,204,21,0.15), 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+html.dark .hover\:border-amber-400:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.2) !important;
+}
 
-/* Green success box */
+/* ── Contact page: key contacts cards ── */
+html.dark .bg-white.p-6 h4 { color: #bfdbfe !important; }
+html.dark .bg-white.p-6 p  { color: #94a3b8 !important; }
+
+/* ── School timings box ── */
+html.dark .text-on-surface-variant.text-sm { color: #94a3b8 !important; }
+html.dark .text-primary { color: #bfdbfe !important; }
+html.dark .text-error  { color: #f87171 !important; }
+
+/* ── Badges / tags ── */
+html.dark .bg-secondary-container {
+  background-color: #1e3a5f !important;
+  color: #93c5fd !important;
+}
+
+/* ── Green success box ── */
 html.dark .bg-green-50 { background-color: #0d2818 !important; }
 html.dark .border-green-200 { border-color: #166534 !important; }
 html.dark .text-green-800 { color: #86efac !important; }
 html.dark .text-green-700 { color: #4ade80 !important; }
+html.dark .text-green-600 { color: #34d399 !important; }
 
-/* Footer stays deep navy */
-html.dark footer { background-color: #0a0f1e !important; }
+/* ── Footer stays deep navy ── */
+html.dark footer { background-color: #080d1a !important; }
+html.dark footer .text-slate-300 { color: #cbd5e1 !important; }
+html.dark footer .text-slate-400 { color: #94a3b8 !important; }
+
+/* ── Gallery filter bar ── */
+html.dark .sticky.bg-white { background-color: #12182a !important; }
+
+/* ── Lightbox ── */
+html.dark .fixed.bg-white { background-color: var(--bg-card) !important; }
+
+/* ── Contact info panel ── */
+html.dark .bg-primary-container {
+  background-color: #0f1e38 !important;
+}
+
+/* ── Red error box ── */
+html.dark .bg-red-50 { background-color: #1c0a0a !important; }
+html.dark .border-red-200 { border-color: #7f1d1d !important; }
+html.dark .text-red-700  { color: #fca5a5 !important; }
 
 /* ══════════════════════════════════
    MATERIAL ICONS
@@ -189,3 +310,22 @@ html.dark footer { background-color: #0a0f1e !important; }
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
+/* ══════════════════════════════════
+   PREMIUM GLASSMORPHISM HELPER
+══════════════════════════════════ */
+html.dark .glass-card {
+  background: rgba(22, 29, 48, 0.7) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ══════════════════════════════════
+   SCROLL BAR STYLING (dark mode)
+══════════════════════════════════ */
+html.dark ::-webkit-scrollbar { width: 8px; }
+html.dark ::-webkit-scrollbar-track { background: #0c1120; }
+html.dark ::-webkit-scrollbar-thumb { background: #2a3550; border-radius: 4px; }
+html.dark ::-webkit-scrollbar-thumb:hover { background: #3b4f70; }

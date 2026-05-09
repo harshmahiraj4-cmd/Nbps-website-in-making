@@ -73,13 +73,13 @@ export default function AdmissionsPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter">
             {steps.map((step) => (
-              <div key={step.step} className="bg-white p-8 border border-outline-variant rounded-xl group hover:border-secondary-container transition-colors relative overflow-hidden">
-                <div className="mb-6 w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center text-primary group-hover:bg-secondary-container transition-colors">
-                  <span className="material-symbols-outlined text-3xl">{step.icon}</span>
+              <div key={step.step} className="bg-white dark:bg-[#161d30] p-8 border border-outline-variant dark:border-[#2a3550] rounded-xl group hover:border-secondary-container dark:hover:border-amber-500/40 transition-all relative overflow-hidden shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+                <div className="mb-6 w-14 h-14 bg-surface-container-low dark:bg-[#1e2a40] rounded-lg flex items-center justify-center text-primary group-hover:bg-secondary-container dark:group-hover:bg-amber-500/20 transition-colors">
+                  <span className="material-symbols-outlined text-3xl text-blue-950 dark:text-amber-400">{step.icon}</span>
                 </div>
-                <div className="absolute top-4 right-4 text-[64px] leading-none text-surface-container-high select-none font-bold" style={serifStyle}>{step.step}</div>
-                <h3 className="text-2xl font-bold text-primary mb-3" style={serifStyle}>{step.title}</h3>
-                <p className="text-sm text-on-surface-variant leading-relaxed" style={serifStyle}>{step.desc}</p>
+                <div className="absolute top-4 right-4 text-[64px] leading-none text-surface-container-high dark:text-white/5 select-none font-bold" style={serifStyle}>{step.step}</div>
+                <h3 className="text-2xl font-bold text-blue-950 dark:text-blue-200 mb-3" style={serifStyle}>{step.title}</h3>
+                <p className="text-sm text-on-surface-variant dark:text-slate-400 leading-relaxed" style={serifStyle}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -94,11 +94,11 @@ export default function AdmissionsPage() {
               <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Documents Checklist</h2>
               <div className="space-y-3">
                 {docs.map((doc, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-amber-400 transition-colors">
-                    <div className="w-8 h-8 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="material-symbols-outlined text-sm text-blue-950">check</span>
+                  <div key={i} className="flex items-center gap-4 bg-white dark:bg-[#161d30] p-4 rounded-xl border border-gray-100 dark:border-[#2a3550] hover:border-amber-400 dark:hover:border-amber-500 transition-all">
+                    <div className="w-8 h-8 bg-secondary-container dark:bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-sm text-blue-950 dark:text-amber-400">check</span>
                     </div>
-                    <span className="text-on-surface text-sm" style={serifStyle}>{doc}</span>
+                    <span className="text-on-surface dark:text-slate-200 text-sm" style={serifStyle}>{doc}</span>
                   </div>
                 ))}
               </div>
@@ -110,19 +110,19 @@ export default function AdmissionsPage() {
               <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Tuition Fees 2026–27</h2>
               <div className="space-y-4">
                 {feeStructure.map((f) => (
-                  <div key={f.level} className="bg-white p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                  <div key={f.level} className="bg-white dark:bg-[#161d30] p-6 rounded-xl border border-gray-100 dark:border-[#2a3550] shadow-sm dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="font-bold text-blue-950" style={serifStyle}>{f.level}</div>
-                        <div className="text-sm text-on-surface-variant" style={serifStyle}>{f.grades}</div>
+                        <div className="font-bold text-blue-950 dark:text-blue-200" style={serifStyle}>{f.level}</div>
+                        <div className="text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>{f.grades}</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-blue-950" style={serifStyle}>{f.annual}</div>
-                        <div className="text-sm text-on-surface-variant">/year</div>
+                        <div className="text-2xl font-bold text-blue-950 dark:text-amber-400" style={serifStyle}>{f.annual}</div>
+                        <div className="text-sm text-on-surface-variant dark:text-slate-400">/year</div>
                       </div>
                     </div>
-                    <div className="pt-3 border-t border-gray-100 text-sm text-on-surface-variant" style={serifStyle}>
-                      Monthly: <span className="font-semibold text-blue-950">{f.monthly}/mo</span>
+                    <div className="pt-3 border-t border-gray-100 dark:border-[#2a3550] text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>
+                      Monthly: <span className="font-semibold text-blue-950 dark:text-blue-300">{f.monthly}/mo</span>
                     </div>
                   </div>
                 ))}
@@ -154,40 +154,40 @@ export default function AdmissionsPage() {
                 <p className="text-green-700" style={serifStyle}>Thank you! Our admissions team will contact you within 24 hours. You can also call us directly at <strong>6207 834 778</strong>.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm space-y-5">
+              <form onSubmit={handleSubmit} className="bg-white dark:bg-[#161d30] rounded-xl border border-gray-200 dark:border-[#2a3550] p-8 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Student&apos;s Full Name *</label>
-                    <input type="text" required value={formData.studentName} onChange={(e) => setFormData({...formData, studentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Child's full name" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Student&apos;s Full Name *</label>
+                    <input type="text" required value={formData.studentName} onChange={(e) => setFormData({...formData, studentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Child's full name" style={serifStyle} />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Parent / Guardian Name *</label>
-                    <input type="text" required value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Father / Mother name" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Parent / Guardian Name *</label>
+                    <input type="text" required value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="Father / Mother name" style={serifStyle} />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Mobile Number *</label>
-                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="10-digit mobile number" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Mobile Number *</label>
+                    <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" placeholder="10-digit mobile number" style={serifStyle} />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Date of Birth</label>
-                    <input type="date" value={formData.dob} onChange={(e) => setFormData({...formData, dob: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" style={serifStyle} />
+                    <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Date of Birth</label>
+                    <input type="date" value={formData.dob} onChange={(e) => setFormData({...formData, dob: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" style={serifStyle} />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Seeking Admission in Class *</label>
-                  <select required value={formData.class} onChange={(e) => setFormData({...formData, class: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm bg-white" style={serifStyle}>
+                  <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Seeking Admission in Class *</label>
+                  <select required value={formData.class} onChange={(e) => setFormData({...formData, class: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm" style={serifStyle}>
                     <option value="">Select class...</option>
                     {['Play', 'LKG', 'UKG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII'].map(c => <option key={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-blue-950 mb-2 uppercase tracking-wide" style={serifStyle}>Home Address</label>
-                  <textarea rows={3} value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-950 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Village / Block / District" style={serifStyle} />
+                  <label className="block text-sm font-semibold text-blue-950 dark:text-blue-200 mb-2 uppercase tracking-wide" style={serifStyle}>Home Address</label>
+                  <textarea rows={3} value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 dark:border-[#2a3550] dark:bg-[#1e2a40] dark:text-white rounded-lg focus:outline-none focus:border-blue-950 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 transition-all text-sm resize-none" placeholder="Village / Block / District" style={serifStyle} />
                 </div>
-                <button type="submit" className="w-full py-4 bg-blue-950 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg" style={serifStyle}>Submit Enquiry</button>
-                <p className="text-xs text-on-surface-variant text-center" style={serifStyle}>Or call us directly at <a href="tel:6207834778" className="text-blue-950 font-bold underline">6207 834 778</a></p>
+                <button type="submit" className="w-full py-4 bg-blue-950 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg dark:shadow-blue-900/40" style={serifStyle}>Submit Enquiry</button>
+                <p className="text-xs text-on-surface-variant dark:text-slate-400 text-center" style={serifStyle}>Or call us directly at <a href="tel:6207834778" className="text-blue-950 dark:text-amber-400 font-bold underline">6207 834 778</a></p>
               </form>
             )}
           </div>
