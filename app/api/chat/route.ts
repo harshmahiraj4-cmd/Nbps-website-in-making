@@ -15,6 +15,9 @@ CONTACT INFORMATION:
 - Admissions: +91 6204255099
 - Support: +91 9708573000
 - WhatsApp: Available via the WhatsApp button on the website
+- Facebook: https://www.facebook.com/share/1AdfaiEUUu/
+- YouTube: http://www.youtube.com/@nbpsdaudnagarchakgadho8492
+- Location: Daud Nagar Chakgadho, Bidupur, Vaishali, Bihar
 
 ADMISSIONS:
 - Admissions are OPEN for session 2026-27
