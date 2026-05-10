@@ -89,49 +89,26 @@ export default function AdmissionsPage() {
         <section className="bg-surface-container-low dark:bg-gray-900 py-stack-lg">
           <div className="max-w-container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-gutter">
             {/* Documents */}
-            <div>
+            <div className="lg:col-span-2">
               <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Required Documents</span>
               <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Documents Checklist</h2>
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {docs.map((doc, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white dark:bg-[#161d30] p-4 rounded-xl border border-gray-100 dark:border-[#2a3550] hover:border-amber-400 dark:hover:border-amber-500 transition-all">
-                    <div className="w-8 h-8 bg-secondary-container dark:bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="material-symbols-outlined text-sm text-blue-950 dark:text-amber-400">check</span>
+                  <div key={i} className="flex items-center gap-4 bg-white dark:bg-[#161d30] p-5 rounded-xl border border-gray-100 dark:border-[#2a3550] hover:border-amber-400 dark:hover:border-amber-500 transition-all">
+                    <div className="w-10 h-10 bg-secondary-container dark:bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-base text-blue-950 dark:text-amber-400">check</span>
                     </div>
-                    <span className="text-on-surface dark:text-slate-200 text-sm" style={serifStyle}>{doc}</span>
+                    <span className="text-on-surface dark:text-slate-200 font-medium" style={serifStyle}>{doc}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Fee Structure */}
-            <div>
-              <span className="text-secondary font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Fee Structure</span>
-              <h2 className="text-4xl font-bold text-primary mb-8" style={serifStyle}>Tuition Fees 2026–27</h2>
-              <div className="space-y-4">
-                {feeStructure.map((f) => (
-                  <div key={f.level} className="bg-white dark:bg-[#161d30] p-6 rounded-xl border border-gray-100 dark:border-[#2a3550] shadow-sm dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <div className="font-bold text-blue-950 dark:text-blue-200" style={serifStyle}>{f.level}</div>
-                        <div className="text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>{f.grades}</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-blue-950 dark:text-amber-400" style={serifStyle}>{f.annual}</div>
-                        <div className="text-sm text-on-surface-variant dark:text-slate-400">/year</div>
-                      </div>
-                    </div>
-                    <div className="pt-3 border-t border-gray-100 dark:border-[#2a3550] text-sm text-on-surface-variant dark:text-slate-400" style={serifStyle}>
-                      Monthly: <span className="font-semibold text-blue-950 dark:text-blue-300">{f.monthly}/mo</span>
-                    </div>
-                  </div>
-                ))}
-                <div className="bg-blue-950 text-white p-6 rounded-xl">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="material-symbols-outlined text-amber-400">info</span>
-                    <div className="font-bold" style={serifStyle}>Fee Concessions Available</div>
-                  </div>
-                  <p className="text-blue-200 text-sm" style={serifStyle}>Special fee concessions are available for meritorious students and economically weaker sections. Contact the school office for details.</p>
+              <div className="mt-10 bg-blue-950 text-white p-8 rounded-2xl flex items-center gap-6">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-3xl text-amber-400">payments</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-1" style={serifStyle}>Fee Information</h3>
+                  <p className="text-blue-200 text-sm" style={serifStyle}>For detailed information about tuition fees, admission charges, and concessions, please contact the school office at <strong>+91 6207 834 778</strong> or visit us in person.</p>
                 </div>
               </div>
             </div>
