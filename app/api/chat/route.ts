@@ -93,12 +93,22 @@ export async function POST(req: NextRequest) {
     }
 
     // Build conversation history for Gemini
+    // IMPORTANT: Gemini API requires the conversation to start with a 'user' message
     const conversationHistory = messages
       .filter((m: { role: string; content: string }) => m.role === 'user' || m.role === 'assistant')
       .map((m: { role: string; content: string }) => ({
         role: m.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: m.content }],
       }))
+
+    // Remove any leading model (assistant) messages to comply with API rules
+    while (conversationHistory.length > 0 && conversationHistory[0].role === 'model') {
+      conversationHistory.shift()
+    }
+
+    if (conversationHistory.length === 0) {
+      return NextResponse.json({ reply: "How can I help you today?" })
+    }
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
