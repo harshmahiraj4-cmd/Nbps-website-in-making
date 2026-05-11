@@ -31,7 +31,7 @@ export default function StudentLifePage() {
         {/* Hero */}
         <header className="relative h-[550px] w-full overflow-hidden flex items-center">
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5adht0dpWRh9GtFKkgBqP5l2EEZbYLg-HGKmqa5YDiCEFwm7FjWe61ik5uM-lsiGhwjCzpMHpFuLzBAHjgFKj4BVjsm5tp7Bj_46n8Jsr-rix6FfQp8vn-Pc91dd8Ooi0v6SCuJG6Es3bdgSWc4TPZuGZ9Owzkf3QWbg3msNr40QMndmJSr3-s6RY6Ujt9WvpeOL59_i0ulK-vzv_QCeViuCkSRKAnnQNyikHMXz_4Zt5rBNDET7wmvFuBh3-Pj9y1kG0Y80ez4I"
+            src="/student-life/sl-hero.jpg"
             alt="NBPS Student Life" fill className="object-cover" priority
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,10,30,0.4), rgba(0,10,30,0.82))' }} />
