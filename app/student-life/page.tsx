@@ -28,6 +28,11 @@ const clubs = [
 const vibrantMoments = [
   { src: "/gallery/event-1.jpg", alt: "Student Speech at NBPS", title: "Student Speech", desc: "Students actively participating in events.", span: 2 },
   { src: "/gallery/event-3.jpg", alt: "Cultural Performance", title: "Cultural Events", desc: "Vibrant cultural performances by students.", span: 2 },
+  { src: "/gallery/event-5.jpg", alt: "Diwali Celebration", title: "Diwali Celebration", desc: "Beautiful diyas lighting up the school campus.", span: 2 },
+  { src: "/gallery/event-7.jpg", alt: "Prize Distribution", title: "Prize Distribution", desc: "Recognizing the hard work and achievements of our students.", span: 2 },
+  { src: "/gallery/event-6.jpg", alt: "Fancy Dress", span: 1 },
+  { src: "/gallery/event-8.jpg", alt: "Independence Day", span: 1 },
+  { src: "/gallery/event-9.jpg", alt: "Cultural Dance", span: 1 },
   { src: "/gallery/event-2.jpg", alt: "Award Ceremony", span: 1 },
   { src: "/gallery/event-4.jpg", alt: "Independence Day", span: 1 },
   { src: "/student-life/sl-2.jpg", alt: "National Day Celebration at NBPS", title: "National Day Celebrations", desc: "Fostering patriotism and unity among our students.", span: 2 },

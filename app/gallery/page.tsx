@@ -21,6 +21,11 @@ const photos = [
   { src: '/gallery/event-2.jpg', title: 'Award Ceremony', category: 'Events & Celebrations', desc: 'Students proudly showing off their medals.' },
   { src: '/gallery/event-3.jpg', title: 'Cultural Performance', category: 'Events & Celebrations', desc: 'Students in traditional attire ready for a performance.' },
   { src: '/gallery/event-4.jpg', title: 'Independence Day', category: 'Events & Celebrations', desc: 'A student delivering a patriotic speech.' },
+  { src: '/gallery/event-5.jpg', title: 'Diwali Celebration', category: 'Events & Celebrations', desc: 'Beautiful diyas lighting up the school campus.' },
+  { src: '/gallery/event-6.jpg', title: 'Fancy Dress', category: 'Events & Celebrations', desc: 'A student dressed as Mahatma Gandhi during a special assembly.' },
+  { src: '/gallery/event-7.jpg', title: 'Prize Distribution', category: 'Events & Celebrations', desc: 'Recognizing the hard work and achievements of our students.' },
+  { src: '/gallery/event-8.jpg', title: 'Independence Day Lineup', category: 'Events & Celebrations', desc: 'Students proudly wearing the Ashoka Chakra.' },
+  { src: '/gallery/event-9.jpg', title: 'Cultural Dance', category: 'Events & Celebrations', desc: 'A vibrant traditional dance performance by our students.' },
 ]
 
 const categories = ['All', 'Campus', 'Classrooms', 'Teaching', 'Facilities', 'Events & Celebrations']
