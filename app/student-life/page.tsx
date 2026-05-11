@@ -1,7 +1,9 @@
+'use client'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const serifStyle = { fontFamily: 'Georgia, serif' }
 
@@ -23,7 +25,44 @@ const clubs = [
   { icon: 'volunteer_activism', name: 'Community Service', members: 'Open to all', desc: 'Social responsibility activities and village awareness programmes.' },
 ]
 
+const vibrantMoments = [
+  { src: "/gallery/event-1.jpg", alt: "Student Speech at NBPS", title: "Student Speech", desc: "Students actively participating in events.", span: 2 },
+  { src: "/gallery/event-3.jpg", alt: "Cultural Performance", title: "Cultural Events", desc: "Vibrant cultural performances by students.", span: 2 },
+  { src: "/gallery/event-2.jpg", alt: "Award Ceremony", span: 1 },
+  { src: "/gallery/event-4.jpg", alt: "Independence Day", span: 1 },
+  { src: "/student-life/sl-2.jpg", alt: "National Day Celebration at NBPS", title: "National Day Celebrations", desc: "Fostering patriotism and unity among our students.", span: 2 },
+  { src: "/student-life/sl-14.jpg", alt: "Classical Dance Performance", title: "Annual Cultural Fest", desc: "Students performing graceful classical dances on stage.", span: 2 },
+  { src: "/student-life/sl-11.jpg", alt: "Dance Performance", span: 2 },
+  { src: "/student-life/sl-13.jpg", alt: "Stage Dance Performance", span: 1 },
+  { src: "/student-life/sl-12.jpg", alt: "Students on stage with flags", span: 1 },
+  { src: "/student-life/sl-15.jpg", alt: "Children dancing on stage", span: 2 },
+  { src: "/student-life/sl-10.jpg", alt: "Road Safety Activity", title: "Road Safety Awareness", desc: "Practical activities to teach students about traffic rules.", span: 2 },
+  { src: "/student-life/sl-20.jpg", alt: "Independence Day Celebration", span: 2 },
+  { src: "/student-life/sl-17.jpg", alt: "Children dancing on stage", span: 1 },
+  { src: "/student-life/sl-19.jpg", alt: "Boys cultural dance", span: 1 },
+  { src: "/student-life/sl-6.jpg", alt: "Students with Holi Colors", span: 2 },
+  { src: "/student-life/sl-8.jpg", alt: "Diwali Diyas Celebration", span: 1 },
+  { src: "/student-life/sl-18.jpg", alt: "Boys dancing on stage", span: 1 },
+  { src: "/student-life/sl-9.jpg", alt: "Students looking up with Diyas", span: 1 },
+  { src: "/student-life/sl-7.jpg", alt: "Students with decorated Diyas", span: 2 },
+  { src: "/student-life/sl-3.jpg", alt: "Holi Celebration at NBPS", span: 1 },
+  { src: "/student-life/sl-16.jpg", alt: "Young children dancing", span: 1 },
+  { src: "/student-life/sl-4.jpg", alt: "School Life Moments", span: 1 },
+  { src: "/student-life/sl-5.jpg", alt: "Festival of Colors at NBPS", span: 1 },
+  { src: "/student-life/sl-1.jpg", alt: "Students with National Flags", span: 1 },
+]
+
 export default function StudentLifePage() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const showNext = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (lightboxIndex !== null) setLightboxIndex((lightboxIndex + 1) % vibrantMoments.length)
+  }
+  const showPrev = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (lightboxIndex !== null) setLightboxIndex((lightboxIndex - 1 + vibrantMoments.length) % vibrantMoments.length)
+  }
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -117,98 +156,28 @@ export default function StudentLifePage() {
             <h2 className="text-4xl font-bold text-blue-950 dark:text-blue-200 mb-4" style={serifStyle}>Vibrant Moments</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/gallery/event-1.jpg" alt="Student Speech at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-white font-bold text-lg" style={serifStyle}>Student Speech</p>
-                <p className="text-white/70 text-sm">Students actively participating in events.</p>
+            {vibrantMoments.map((moment, idx) => (
+              <div 
+                key={idx} 
+                className={`${moment.span === 2 ? 'lg:col-span-2 relative h-80' : 'relative h-72'} rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-transparent hover:border-amber-400 dark:hover:border-amber-500 transition-all`}
+                onClick={() => setLightboxIndex(idx)}
+              >
+                <Image src={moment.src} alt={moment.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                
+                <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/40 transition-all flex items-center justify-center z-10">
+                  <span className="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 transform duration-300 drop-shadow-md">
+                    zoom_in
+                  </span>
+                </div>
+
+                {moment.title && (
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent z-20">
+                    <p className="text-white font-bold text-lg drop-shadow-md" style={serifStyle}>{moment.title}</p>
+                    <p className="text-white/80 text-sm drop-shadow-md">{moment.desc}</p>
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/gallery/event-3.jpg" alt="Cultural Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-white font-bold text-lg" style={serifStyle}>Cultural Events</p>
-                <p className="text-white/70 text-sm">Vibrant cultural performances by students.</p>
-              </div>
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/gallery/event-2.jpg" alt="Award Ceremony" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/gallery/event-4.jpg" alt="Independence Day" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-2.jpg" alt="National Day Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-white font-bold text-lg" style={serifStyle}>National Day Celebrations</p>
-                <p className="text-white/70 text-sm">Fostering patriotism and unity among our students.</p>
-              </div>
-            </div>
-            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-14.jpg" alt="Classical Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-white font-bold text-lg" style={serifStyle}>Annual Cultural Fest</p>
-                <p className="text-white/70 text-sm">Students performing graceful classical dances on stage.</p>
-              </div>
-            </div>
-            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-11.jpg" alt="Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-13.jpg" alt="Stage Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-12.jpg" alt="Students on stage with flags" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-15.jpg" alt="Children dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-10.jpg" alt="Road Safety Activity" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-white font-bold text-lg" style={serifStyle}>Road Safety Awareness</p>
-                <p className="text-white/70 text-sm">Practical activities to teach students about traffic rules.</p>
-              </div>
-            </div>
-            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-20.jpg" alt="Independence Day Celebration" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-17.jpg" alt="Children dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-19.jpg" alt="Boys cultural dance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-6.jpg" alt="Students with Holi Colors" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-8.jpg" alt="Diwali Diyas Celebration" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-18.jpg" alt="Boys dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-9.jpg" alt="Students looking up with Diyas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-7.jpg" alt="Students with decorated Diyas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-3.jpg" alt="Holi Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-16.jpg" alt="Young children dancing" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-4.jpg" alt="School Life Moments" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-5.jpg" alt="Festival of Colors at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
-              <Image src="/student-life/sl-1.jpg" alt="Students with National Flags" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
+            ))}
           </div>
         </section>
 
@@ -274,6 +243,65 @@ export default function StudentLifePage() {
           </div>
         </section>
       </main>
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <div
+            className="relative max-w-5xl w-full flex items-center justify-between gap-4"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Prev Button */}
+            <button
+              onClick={showPrev}
+              className="w-12 h-12 bg-white/10 hover:bg-white text-white hover:text-blue-950 rounded-full flex items-center justify-center transition-all flex-shrink-0"
+            >
+              <span className="material-symbols-outlined text-3xl">chevron_left</span>
+            </button>
+
+            {/* Photo Content */}
+            <div className="bg-white dark:bg-[#161d30] rounded-2xl overflow-hidden shadow-2xl flex-1 flex flex-col max-h-[90vh]">
+              <div className="relative flex-1 min-h-[60vh] bg-gray-100 dark:bg-[#0c1120]">
+                <Image src={vibrantMoments[lightboxIndex].src} alt={vibrantMoments[lightboxIndex].alt} fill className="object-contain" />
+                <button
+                  onClick={() => setLightboxIndex(null)}
+                  className="absolute top-4 right-4 z-10 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black transition-colors"
+                >
+                  <span className="material-symbols-outlined">close</span>
+                </button>
+              </div>
+              <div className="p-6 border-t border-gray-100 dark:border-[#2a3550]">
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1 block" style={serifStyle}>Vibrant Moments</span>
+                    <h3 className="text-2xl font-bold text-blue-950 dark:text-blue-200 mb-2" style={serifStyle}>
+                      {vibrantMoments[lightboxIndex].title || vibrantMoments[lightboxIndex].alt}
+                    </h3>
+                    {vibrantMoments[lightboxIndex].desc && (
+                      <p className="text-on-surface-variant dark:text-slate-400" style={serifStyle}>{vibrantMoments[lightboxIndex].desc}</p>
+                    )}
+                  </div>
+                  <span className="text-sm font-semibold text-slate-400 dark:text-slate-500 flex-shrink-0">
+                    {lightboxIndex + 1} / {vibrantMoments.length}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={showNext}
+              className="w-12 h-12 bg-white/10 hover:bg-white text-white hover:text-blue-950 rounded-full flex items-center justify-center transition-all flex-shrink-0"
+            >
+              <span className="material-symbols-outlined text-3xl">chevron_right</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   )
