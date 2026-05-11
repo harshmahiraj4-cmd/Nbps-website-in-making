@@ -197,7 +197,7 @@ export default function StudentLifePage() {
           <div className="flex flex-col lg:flex-row gap-gutter items-center">
             <div className="lg:w-1/2 relative">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBvZTsXoYBSFjluMlUCiY4ob1QVqkc39ImWQyvoZdPDKIDvlgcKU10Z9g5Fk2_N7aSzdxk-u6nT2Q3SWDVUedyLT4IWrmzfWU7c9dx20LCwh4Dqp-xeYCjY3zpHF8ePAdCPUMUuJzjZFaD5LG9wda4-YnJ6p8AbPCn-AxEmr_Fo8xkKY6UtpZVzLkBVlfgyg0zHpGXtfLBiVTXUF0te759NicLjBY2UXMJSxw1QrClsgM35u_tNeqXq3b2Fc_PLjrycGJcE4qEO0E"
+                src="/student-life/events-hero.jpg"
                 alt="NBPS Events" width={600} height={400} className="rounded-xl w-full object-cover"
               />
             </div>
