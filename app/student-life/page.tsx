@@ -118,6 +118,26 @@ export default function StudentLifePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/gallery/event-1.jpg" alt="Student Speech at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-white font-bold text-lg" style={serifStyle}>Student Speech</p>
+                <p className="text-white/70 text-sm">Students actively participating in events.</p>
+              </div>
+            </div>
+            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/gallery/event-3.jpg" alt="Cultural Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-white font-bold text-lg" style={serifStyle}>Cultural Events</p>
+                <p className="text-white/70 text-sm">Vibrant cultural performances by students.</p>
+              </div>
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/gallery/event-2.jpg" alt="Award Ceremony" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/gallery/event-4.jpg" alt="Independence Day" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-2.jpg" alt="National Day Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                 <p className="text-white font-bold text-lg" style={serifStyle}>National Day Celebrations</p>

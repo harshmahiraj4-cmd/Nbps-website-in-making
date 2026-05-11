@@ -17,9 +17,13 @@ const photos = [
   { src: '/gallery/teaching.jpg', title: 'Interactive Teaching', category: 'Teaching', desc: 'Our experienced teacher engaging students with interactive lessons.' },
   { src: '/gallery/computer-lab.jpg', title: 'Computer Laboratory', category: 'Facilities', desc: 'Our computer lab equipped with systems for practical IT education.' },
   { src: '/gallery/primary-class.jpg', title: 'Primary Section – KG Class', category: 'Classrooms', desc: 'Kindergarten students in their colourful and cheerful classroom.' },
+  { src: '/gallery/event-1.jpg', title: 'Student Speech', category: 'Events & Celebrations', desc: 'A young student confidently addressing the school.' },
+  { src: '/gallery/event-2.jpg', title: 'Award Ceremony', category: 'Events & Celebrations', desc: 'Students proudly showing off their medals.' },
+  { src: '/gallery/event-3.jpg', title: 'Cultural Performance', category: 'Events & Celebrations', desc: 'Students in traditional attire ready for a performance.' },
+  { src: '/gallery/event-4.jpg', title: 'Independence Day', category: 'Events & Celebrations', desc: 'A student delivering a patriotic speech.' },
 ]
 
-const categories = ['All', 'Campus', 'Classrooms', 'Teaching', 'Facilities']
+const categories = ['All', 'Campus', 'Classrooms', 'Teaching', 'Facilities', 'Events & Celebrations']
 
 export default function GalleryPage() {
   const [active, setActive] = useState('All')
