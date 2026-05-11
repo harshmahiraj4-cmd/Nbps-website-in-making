@@ -189,11 +189,22 @@ export default function StudentLifePage() {
         {/* Annual Events */}
         <section className="max-w-container mx-auto px-8 py-stack-lg">
           <div className="flex flex-col lg:flex-row gap-gutter items-center">
-            <div className="lg:w-1/2 relative">
-              <Image
-                src="/student-life/events-hero.jpg"
-                alt="NBPS Events" width={600} height={400} className="rounded-xl w-full object-cover"
-              />
+            <div className="lg:w-1/2 relative grid grid-cols-2 gap-3">
+              <div className="col-span-2 relative h-64 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
+                <Image src="/student-life/science-exhibition-5.jpg" alt="Science Exhibition - Model Rocket" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
+                <Image src="/student-life/science-exhibition-4.jpg" alt="Science Exhibition - Maps" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
+                <Image src="/student-life/science-exhibition-3.jpg" alt="Science Exhibition - Physical Features" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
+                <Image src="/student-life/science-exhibition-2.jpg" alt="Science Exhibition - Posters" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
+                <Image src="/student-life/science-exhibition-1.jpg" alt="Science Exhibition - Rainwater Harvesting" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
             </div>
             <div className="lg:w-1/2">
               <span className="text-secondary dark:text-amber-400 font-semibold text-sm block mb-3 uppercase tracking-widest" style={serifStyle}>Annual Highlights</span>
