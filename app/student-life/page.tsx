@@ -151,10 +151,22 @@ export default function StudentLifePage() {
               </div>
             </div>
             <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-20.jpg" alt="Independence Day Celebration" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-17.jpg" alt="Children dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-19.jpg" alt="Boys cultural dance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-6.jpg" alt="Students with Holi Colors" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-8.jpg" alt="Diwali Diyas Celebration" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-18.jpg" alt="Boys dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-9.jpg" alt="Students looking up with Diyas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -164,6 +176,9 @@ export default function StudentLifePage() {
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-3.jpg" alt="Holi Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-16.jpg" alt="Young children dancing" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-4.jpg" alt="School Life Moments" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
