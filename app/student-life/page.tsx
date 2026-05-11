@@ -125,6 +125,25 @@ export default function StudentLifePage() {
               </div>
             </div>
             <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-14.jpg" alt="Classical Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-white font-bold text-lg" style={serifStyle}>Annual Cultural Fest</p>
+                <p className="text-white/70 text-sm">Students performing graceful classical dances on stage.</p>
+              </div>
+            </div>
+            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-11.jpg" alt="Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-13.jpg" alt="Stage Dance Performance" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-12.jpg" alt="Students on stage with flags" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="lg:col-span-2 relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-15.jpg" alt="Children dancing on stage" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <Image src="/student-life/sl-10.jpg" alt="Road Safety Activity" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                 <p className="text-white font-bold text-lg" style={serifStyle}>Road Safety Awareness</p>
