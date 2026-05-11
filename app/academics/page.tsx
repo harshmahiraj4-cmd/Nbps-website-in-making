@@ -184,12 +184,35 @@ export default function AcademicsPage() {
               </div>
             </section>
 
-            {/* Faculty Stats */}
+            {/* Our Educators */}
             <section>
               <div className="mb-8">
                 <span className="text-secondary font-semibold text-sm mb-2 block uppercase tracking-widest" style={serifStyle}>Our Educators</span>
                 <h2 className="text-4xl font-bold text-blue-950 dark:text-blue-300" style={serifStyle}>Dedicated Faculty</h2>
               </div>
+              
+              {/* Faculty Image Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {[
+                  { src: '/faculty/faculty-1.jpg', alt: 'Staff meeting at NBPS', span: 'md:col-span-1' },
+                  { src: '/faculty/faculty-2.jpg', alt: 'NBPS staff group photo under banner', span: 'md:col-span-2' },
+                  { src: '/faculty/faculty-3.jpg', alt: 'NBPS female staff group traditional', span: 'md:col-span-1' },
+                  { src: '/faculty/faculty-4.jpg', alt: 'NBPS female staff group winter attire', span: 'md:col-span-1' },
+                  { src: '/faculty/faculty-5.jpg', alt: 'NBPS staff group with students and flags', span: 'md:col-span-1' },
+                ].map((img, i) => (
+                  <div key={i} className={`relative h-64 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 group ${img.span}`}>
+                    <Image 
+                      src={img.src} 
+                      alt={img.alt} 
+                      fill 
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Faculty Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 {[
                   { value: 'B.Ed', label: 'Qualified Teachers' },
