@@ -110,6 +110,36 @@ export default function StudentLifePage() {
           </div>
         </section>
 
+        {/* Glimpses of NBPS */}
+        <section className="max-w-container mx-auto px-8 pb-stack-lg">
+          <div className="mb-10 text-center lg:text-left">
+            <span className="text-secondary dark:text-amber-400 font-semibold text-sm mb-2 block uppercase tracking-widest" style={serifStyle}>Life at NBPS</span>
+            <h2 className="text-4xl font-bold text-blue-950 dark:text-blue-200 mb-4" style={serifStyle}>Vibrant Moments</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-2.jpg" alt="National Day Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-white font-bold" style={serifStyle}>National Day Celebrations</p>
+                <p className="text-white/70 text-sm">Fostering patriotism and unity among our students.</p>
+              </div>
+            </div>
+            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-3.jpg" alt="Holi Celebration at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-4.jpg" alt="School Life Moments" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-5.jpg" alt="Festival of Colors at NBPS" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/student-life/sl-1.jpg" alt="Students with National Flags" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </div>
+        </section>
+
         {/* Annual Events */}
         <section className="max-w-container mx-auto px-8 py-stack-lg">
           <div className="flex flex-col lg:flex-row gap-gutter items-center">
