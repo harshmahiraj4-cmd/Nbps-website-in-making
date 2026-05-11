@@ -55,8 +55,8 @@ export default function AcademicsPage() {
 
         {/* Hero */}
         <section className="relative h-[400px] flex items-center overflow-hidden">
-          <Image src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDe3dNTINGaML7RpzL3o4paq3SGlWc6Pqlvg_NuQFa8HoCREDgsq1eHs-69igzVolwty6_GWW7uuoc6LuMfubj08nI4cIl2SIRHQ9fop-kH6RvdpPhPeVuBfqrlp-uWDXkUWRi5FVXHr3z1AFbymaEkMwMEyf3u9OxgVypAiYtDi46Gu0Dpaz6mYOniG2eMyprhSFxqz6VqkxYh_GkLsYsV2mRLW9GThMIZgsHoKE6zxYrHBujOEe8Vxr0PDZ6q-TovffyopO4eVA"
-            alt="NBPS Academics" fill className="object-cover" priority />
+          <Image src="/academics/library.jpg"
+            alt="NBPS Academics - Students in Library" fill className="object-cover object-[center_30%]" priority />
           <div className="absolute inset-0 bg-primary/65" />
           <div className="relative z-10 max-w-container mx-auto px-8 w-full">
             <div className="max-w-2xl">
