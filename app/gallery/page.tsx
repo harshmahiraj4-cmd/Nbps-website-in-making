@@ -52,7 +52,7 @@ export default function GalleryPage() {
 
         {/* Hero */}
         <section className="relative h-[380px] flex items-center overflow-hidden">
-          <Image src="/gallery/campus-front.jpg" alt="NBPS Campus" fill className="object-cover" priority />
+          <Image src="/gallery/campus-front.jpg" alt="NBPS Campus" fill sizes="100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-blue-950/70" />
           <div className="relative z-10 max-w-container mx-auto px-8 w-full text-center">
             <span className="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded mb-4 uppercase tracking-widest" style={serifStyle}>
@@ -102,6 +102,9 @@ export default function GalleryPage() {
                     src={photo.src}
                     alt={photo.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    quality={80}
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/40 transition-all flex items-center justify-center">
@@ -171,7 +174,7 @@ export default function GalleryPage() {
               {/* Photo Content */}
               <div className="bg-white dark:bg-[#161d30] rounded-2xl overflow-hidden shadow-2xl flex-1 flex flex-col max-h-[90vh]">
                 <div className="relative flex-1 min-h-[50vh] bg-gray-100 dark:bg-[#0c1120]">
-                  <Image src={filtered[lightboxIndex].src} alt={filtered[lightboxIndex].title} fill className="object-contain" />
+                  <Image src={filtered[lightboxIndex].src} alt={filtered[lightboxIndex].title} fill sizes="100vw" quality={90} className="object-contain" />
                   <button
                     onClick={() => setLightboxIndex(null)}
                     className="absolute top-4 right-4 z-10 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black transition-colors"

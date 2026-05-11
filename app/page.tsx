@@ -16,7 +16,7 @@ export default function HomePage() {
           <Image
             src="/gallery/main-gate.jpg"
             alt="Nation Building Public School Campus"
-            fill className="object-cover" priority
+            fill sizes="100vw" className="object-cover" priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-900/70 to-blue-950/30" />
           {/* Decorative shimmer lines */}
@@ -170,7 +170,7 @@ export default function HomePage() {
                     src="/director.jpg"
                     alt="Mr. Abhaykant Kumar - Director" width={560} height={800}
                     className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                    unoptimized={true} quality={100}
+                    quality={85}
                   />
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function HomePage() {
                     src="/deputy_director.jpg"
                     alt="Mr. Ranvir Singh - Deputy Director" width={560} height={800}
                     className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                    unoptimized={true} quality={100}
+                    quality={85}
                   />
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
                     src="/founder.jpg"
                     alt="Mr. Suryakant Kumar Kariyappa - Mentor" width={560} height={800}
                     className="rounded-xl border border-gray-200 shadow-lg w-full object-cover aspect-[3/4] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:shadow-2xl group-active:scale-[1.03] group-active:shadow-2xl"
-                    unoptimized={true} quality={100}
+                    quality={85}
                   />
                 </div>
               </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
                   width={1200} 
                   height={800}
                   className="w-full h-auto rounded-xl shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-[1.01]"
-                  priority unoptimized={true} quality={100}
+                  loading="lazy" quality={85}
                 />
                 <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/20 transition-all rounded-xl flex items-center justify-center">
                    <span className="material-symbols-outlined text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 transform duration-300 drop-shadow-lg">

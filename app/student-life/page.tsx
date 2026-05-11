@@ -76,7 +76,7 @@ export default function StudentLifePage() {
         <header className="relative h-[550px] w-full overflow-hidden flex items-center">
           <Image
             src="/student-life/sl-hero.jpg"
-            alt="NBPS Student Life" fill className="object-cover" priority
+            alt="NBPS Student Life" fill sizes="100vw" className="object-cover" priority
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,10,30,0.4), rgba(0,10,30,0.82))' }} />
           <div className="relative z-10 max-w-container mx-auto px-8 w-full">
@@ -167,7 +167,7 @@ export default function StudentLifePage() {
                 className={`${moment.span === 2 ? 'lg:col-span-2 relative h-80' : 'relative h-72'} rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-transparent hover:border-amber-400 dark:hover:border-amber-500 transition-all`}
                 onClick={() => setLightboxIndex(idx)}
               >
-                <Image src={moment.src} alt={moment.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={moment.src} alt={moment.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" quality={85} />
                 
                 <div className="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/40 transition-all flex items-center justify-center z-10">
                   <span className="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 transform duration-300 drop-shadow-md">
@@ -191,19 +191,19 @@ export default function StudentLifePage() {
           <div className="flex flex-col lg:flex-row gap-gutter items-center">
             <div className="lg:w-1/2 relative grid grid-cols-2 gap-3">
               <div className="col-span-2 relative h-64 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
-                <Image src="/student-life/science-exhibition-5.jpg" alt="Science Exhibition - Model Rocket" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/student-life/science-exhibition-5.jpg" alt="Science Exhibition - Model Rocket" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" quality={80} />
               </div>
               <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
-                <Image src="/student-life/science-exhibition-4.jpg" alt="Science Exhibition - Maps" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/student-life/science-exhibition-4.jpg" alt="Science Exhibition - Maps" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" quality={80} />
               </div>
               <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
-                <Image src="/student-life/science-exhibition-3.jpg" alt="Science Exhibition - Physical Features" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/student-life/science-exhibition-3.jpg" alt="Science Exhibition - Physical Features" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" quality={80} />
               </div>
               <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
-                <Image src="/student-life/science-exhibition-2.jpg" alt="Science Exhibition - Posters" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/student-life/science-exhibition-2.jpg" alt="Science Exhibition - Posters" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" quality={80} />
               </div>
               <div className="relative h-40 rounded-xl overflow-hidden shadow-md group cursor-pointer border border-transparent hover:border-amber-400 transition-all">
-                <Image src="/student-life/science-exhibition-1.jpg" alt="Science Exhibition - Rainwater Harvesting" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/student-life/science-exhibition-1.jpg" alt="Science Exhibition - Rainwater Harvesting" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" quality={80} />
               </div>
             </div>
             <div className="lg:w-1/2">

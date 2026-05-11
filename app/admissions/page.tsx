@@ -45,7 +45,7 @@ export default function AdmissionsPage() {
         <section className="relative h-[500px] flex items-center overflow-hidden bg-primary-container">
           <Image
             src="/admissions-building.jpg"
-            alt="NBPS Admissions" fill className="object-cover opacity-60" priority unoptimized={true} quality={100}
+            alt="NBPS Admissions" fill sizes="100vw" className="object-cover opacity-60" priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/50 to-transparent" />
           <div className="relative z-10 max-w-container mx-auto px-8 w-full">
